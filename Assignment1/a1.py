@@ -1,29 +1,35 @@
-#input radius r, height h
-#return volume
+# input radius r, height h
+# return volume
 
-def c(r,h):
+def c(r, h):
     import math
     pass
 
-#input t days
-#output oxygen conten percent of it normal level
+# input t days
+# output oxygen conten percent of it normal level
+
+
 def f(t):
     pass
 
 
-#input t hours
-#return percent watching tv
+# input t hours
+# return percent watching tv
 def P(t):
     pass
 
-#input x percent
-#return millions of dollars
+# input x percent
+# return millions of dollars
+
+
 def cost(x):
     pass
 
-#input dosage a mg and years t
-#return child dosage mg
-def D(t,a):
+# input dosage a mg and years t
+# return child dosage mg
+
+
+def D(t, a):
     pass
 
 
@@ -37,15 +43,15 @@ if __name__ == "__main__":
     you are done testing.
     """
 
-    #volume of cone
-    # print(c(2,5)) 
+    # volume of cone
+    # print(c(2,5))
     # print(c(3,7))
 
-    #oxygen content
+    # oxygen content
     # print(f(0))
     # print(f(10))
 
-    #tv watching
+    # tv watching
     # print(P(0))
     # print(P(3))
     # print(P(8))
@@ -55,5 +61,5 @@ if __name__ == "__main__":
     # print(cost(70))
     # print(cost(90))
 
-    #cowling's rule
+    # cowling's rule
     # print(D(4,500))
