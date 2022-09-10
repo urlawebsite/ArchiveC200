@@ -3,23 +3,27 @@
 
 def c(r, h):
     import math
-    pass
+    v = 1/3*mathpi*r ^ 2*h
+    return v
 
 # input t days
 # output oxygen conten percent of it normal level
 
 
 def f(t):
-    pass
-
+    num = t**2 + (10*t) + 100
+    denom = t**2 + (10*t) + 100
+    content = 100*(num/denom)
+    return content
 
 # input t hours
 # return percent watching tv
+
+
 def P(t):
     pass
-
-# input x percent
-# return millions of dollars
+    # input x percent
+    # return millions of dollars
 
 
 def cost(x):
