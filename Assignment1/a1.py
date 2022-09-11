@@ -3,7 +3,7 @@
 
 def c(r, h):
     import math
-    v = 1/3*mathpi*r ^ 2*h
+    v = 1/3*math.pi*r**2*h
     return v
 
 # input t days
@@ -11,33 +11,42 @@ def c(r, h):
 
 
 def f(t):
-    num = t**2 + (10*t) + 100
-    denom = t**2 + (10*t) + 100
+    num = t**2 + 10*t + 100
+    denom = t**2 + 20*t + 100
     content = 100*(num/denom)
     return content
 
 # input t hours
-# return percent watching tv
+# # return percent watching tv
 
 
 def P(t):
-    pass
-    # input x percent
-    # return millions of dollars
+    Percentage = 0.0135*t**4 - 0.49375*t**3 + 2.58333*t**2 + 3.8*t + 31.60704
+    return Percentage
+
+# input x percent
+# # return millions of dollars
 
 
 def cost(x):
-    pass
+    k = 0.5*x
+    p = 100-x
+    millDollar = k/p
+    return millDollar
 
-# input dosage a mg and years t
-# return child dosage mg
+    # input dosage a mg and years t
+    # return child dosage mg
 
 
 def D(t, a):
-    pass
+    R = t+1
+    E = 24
+    childDos = R/E * a
+    return childDos
 
 
 if __name__ == "__main__":
+
     """
     If you want to do some of your own testing in this file, 
     please put any print statements you want to try under
