@@ -33,10 +33,18 @@ def warping(speed):
     Input: A float or number
     Returns: A number representing the warp factor
     """
-    if speed == 0:
+    if speed < 0:
         return 0
-    elif speed == 1:
+    elif speed < 10:
         return 1
+    elif speed < 39:
+        return 2
+    elif speed < 102:
+        return 3
+    elif speed < 214:
+        return 4
+    else:
+        return 5
 
 
 def catch_speeders(pos1, pos2, time):
@@ -54,7 +62,11 @@ def catch_speeders(pos1, pos2, time):
         time - the recorded time
     Returns: A signal indicating that the warp factor exceeds 3.
     """
-    pass
+    x = warping(speedometer(pos1, pos2, time))
+    if x > 3:
+        return "you in trouble"
+    else:
+        return "you good"
 
 
 def myTestString(func, params):
