@@ -11,7 +11,8 @@ def speedometer(pos1, pos2, time):
         time - the recorded time the car spent between them
     Returns: The speed of the car.
     """
-    pass
+    v = abs(pos2 - pos1) / time
+    return v
 
 
 def warping(speed):
@@ -32,7 +33,10 @@ def warping(speed):
     Input: A float or number
     Returns: A number representing the warp factor
     """
-    pass
+    if speed == 0:
+        return 0
+    elif speed == 1:
+        return 1
 
 
 def catch_speeders(pos1, pos2, time):
@@ -60,7 +64,7 @@ def myTestString(func, params):
     return func.__name__ + "" + str(params) + " produces " + str(func(*params))
 
 
-#Examples to see the difference between "print" and "return"
+# Examples to see the difference between "print" and "return"
 def function_that_prints():
     print("I printed")
 
@@ -75,15 +79,15 @@ def function_that_returns():
 if __name__ == "__main__":
     print("Final Test Code\n")
     print("Testing speedometer()")
-    for x in [(0.0,4.0,2.0), (-1,5,40), (0,0,1.0), (6,3,33)]:
+    for x in [(0.0, 4.0, 2.0), (-1, 5, 40), (0, 0, 1.0), (6, 3, 33)]:
         print(myTestString(speedometer, x))
     print("Testing warping()")
-    for x in [(0,), (41.0,),(10.2,), (1111,)]:
+    for x in [(0,), (41.0,), (10.2,), (1111,)]:
         print(myTestString(warping, x))
     print("Testing catch_speeders()")
-    for x in [(145,150,1.0), (125,150,1.0), (25,150,1.0), (5,150,1.0)]:
+    for x in [(145, 150, 1.0), (125, 150, 1.0), (25, 150, 1.0), (5, 150, 1.0)]:
         print(myTestString(catch_speeders, x))
-    
+
     f1 = function_that_prints()
     f2 = function_that_returns()
     print("Now let us see what the values of f1 and f2 are")
