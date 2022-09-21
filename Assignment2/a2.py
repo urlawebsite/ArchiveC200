@@ -1,5 +1,6 @@
 import math
 
+
 # problem 1
 # input real
 # return real
@@ -55,30 +56,52 @@ def h(t):
 
 
 def q(coefficients):
-    a, b, c = (coefficients)
-    x_1 = -1*b + math.sqrt(b**2 - 4*a*c)
-    x_2 = -1*b - math.sqrt(b**2 - 4*a*c)
-    return x_1, x_2
-# problem 5
-# input [arg1,op,arg2,ans]
-# output boolean True or False
+    b = -coefficients[1]
+    a = coefficients[0]
+    c = coefficients[2]
+    x1 = b + (math.sqrt((b**2) - (4*a*c)) / (2*a))
+    x2 = b - (math.sqrt((b**2) - (4*a*c)) / (2*a))
+    return (x1, x2)
+    # problem 5
+    # input [arg1,op,arg2,ans]
+    # output boolean True or False
 
 
 def eq(lst):
-    #op = ["*"", "+"", "/", "-"]
-    arg_1, op, arg_2, answer = [lst]
-
-
-# problem 6
-# input list of swithes
-# output True if path from start to end
+    arg1, op, arg2, ans = lst
+    if op == "+":
+        a = arg1 + arg2
+    if op == "-":
+        a = arg1 - arg2
+    if op == "*":
+        a = arg1 * arg2
+    if op == "/":
+        a = arg1 / arg2
+    if a == ans:
+        return True
+    else:
+        return False
+    pass
+    # problem 6
+    # input list of swithes
+    # output True if path from start to end
 
 
 def path(lst):
-    if [1]:
-        return True
-        if [1]:
-            return True
+    for x in lst:
+        if lst[0] == 1:
+            if lst[2] == 1:
+                return True
+        if lst[1] == 1:
+            if lst[3] == 1:
+                return True
+            if lst[4] == 1:
+                return True
+        else:
+            return False
+
+
+print(path([1, 1, 1, 1, 1]))
 
 # problem 7
 # INPUT two numbers
@@ -119,7 +142,7 @@ def f_(x, A):
 
 
 def g_(x, length_of_fence):
-    otherSide = length_of_fence - 2*x/2
+    otherSide = (length_of_fence - 2*x)/2
     return otherSide
 
 # PROBLEM 9
@@ -144,7 +167,7 @@ def box_cost(x):
 
 def r(month):
     r = ((10/81)*month**3)-((10/3)*month**2)+((200/9)*month)+55
-    return r
+    return round(r)
 
 # INPUT occupancy rate 0..100
 # OUPUT Revenue generated
@@ -162,31 +185,31 @@ if __name__ == "__main__":
     You should uncomment the print statements *after* you're done testing here.
     """
     # problem 1
-    #print(f"g(0) = {g(0)}")
-    #print(f"g(1) = {g(1)}")
-    #print(f"g(1.01) = {g(1.01)}")
+    # print(f"g(0) = {g(0)}")
+    # print(f"g(1) = {g(1)}")
+    # print(f"g(1.01) = {g(1.01)}")
 
     # problem 2
-    #print(f"f(1976) = {f(1976)}")
-    #print(f"f(1977) = {f(1977)}")
-    #print(f"f(1985) = {f(1985)}")
-    #print(f"f(1988) = {f(1988)}")
-    #print(f"f(2000) = {f(2000)}")
+    # print(f"f(1976) = {f(1976)}")
+    # print(f"f(1977) = {f(1977)}")
+    # print(f"f(1985) = {f(1985)}")
+    # print(f"f(1988) = {f(1988)}")
+    # print(f"f(2000) = {f(2000)}")
 
     # problem 3
-    #print(f"h(0) = {h(0)}")
-    #print(f"h(1) = {h(1)}")
-    #print(f"h(2) = {h(2)}")
+    # print(f"h(0) = {h(0)}")
+    # print(f"h(1) = {h(1)}")
+    # print(f"h(2) = {h(2)}")
 
     # problem 4
-    #print(f"q((1,0,-1)) = {q((1,0,-1))}")
-    #print(f"q((6,-1,-35)) = {q((6,-1,-35))}")
-    #print(f"q((1,-7,-7)) = {q((1,-7,-7))}")
+    # print(f"q((1,0,-1)) = {q((1,0,-1))}")
+    # print(f"q((6,-1,-35)) = {q((6,-1,-35))}")
+    # print(f"q((1,-7,-7)) = {q((1,-7,-7))}")
 
     # problem 5
-    # print(eq([14, "/",2, 7]))
-    # print(eq([20, "*",19, 381]))
-    # print(eq([20, "*",19, 380]))
+    # print(eq([14, "/", 2, 7]))
+    # print(eq([20, "*", 19, 381]))
+    # print(eq([20, "*", 19, 380]))
 
     # problem 6
     # print(f"path([1,0,1,0,0]) = {path([1,0,1,0,0])}")
@@ -194,9 +217,9 @@ if __name__ == "__main__":
     # print(f"path([1,0,0,1,0]) = {path([1,0,0,1,0])}")
 
     # problem 7
-    #print(max3d(1, 2, 3))
-    #print(max3d(1, 3, 2))
-    #print(max3d(3, 2, 1))
+    # print(max3d(1, 2, 3))
+    # print(max3d(1, 3, 2))
+    # print(max3d(3, 2, 1))
 
     # problem 8
     # A = 250
