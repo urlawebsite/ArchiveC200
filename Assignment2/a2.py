@@ -81,7 +81,7 @@ def eq(lst):
         return True
     else:
         return False
-    pass
+
     # problem 6
     # input list of swithes
     # output True if path from start to end
@@ -99,9 +99,6 @@ def path(lst):
                 return True
         else:
             return False
-
-
-print(path([1, 1, 1, 1, 1]))
 
 # problem 7
 # INPUT two numbers
