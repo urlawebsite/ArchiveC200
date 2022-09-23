@@ -6,9 +6,13 @@ I may add some more interesting functions such as append_prime_number
 
 # List Operations
 
+
+from pickletools import read_unicodestring1
+
+
 def manual_append(list_one, element):
     '''
-    given a list and an element append the element to the list 
+    given a list and an element append the element to the list
     note to do this operation you can't use the .append method for lists
 
     inputs:
@@ -17,32 +21,37 @@ def manual_append(list_one, element):
 
     output:
     one coherent list of all elements combined
-
     '''
-    pass
+    nlst = list_one + [element]
+    return nlst
+
 
 def manual_remove(list_one, val):
     '''
-    given a list and a specific value remove the item and report wether you were successful 
+    given a list and a specific value remove the item and report wether you were successful
     by using a for loop to iterate over the list
 
     inputs:
-    list_one - list of specific type(int or str) 
+    list_one - list of specific type(int or str)
     val - the value that you want removed
 
     output:
     list - the list with the element removed if the element is not found return the list
     '''
-    pass
-
+    output = []
+    for item in list_one:
+        if (item != val):
+            output = manual_append(output, item)
+    return output
 # Doing things with list data structures
+
 
 def compare_lists(list_one, list_two):
     '''
     given 2 lists compare and report which indexes are different in an output list
 
     your output should look something like this: [1, 3, 5]
-    
+
     which means that index 1, 3, and 5 are different values these lists can compare any data type
 
     inputs:
@@ -52,24 +61,30 @@ def compare_lists(list_one, list_two):
     outputs:
     list of ints which correlate to indexes that are different in a list
     '''
-    pass
+    output = []
+    for item in range(len(list_one)):
+        if (list_one[item]) != (list_two[item]):
+            output = manual_append(output, item)
+    return output
+
 
 def factorial_for(n):
     '''
     given a number calculate the factorial value using a for loop
 
     input:
-    n - integer value that will be factorial you want to calculate 
+    n - integer value that will be factorial you want to calculate
 
     output:
-    the calculated factorial of the input value 
+    the calculated factorial of the input value
     '''
-    pass
+    output = 1
+    for i in range(n, 0, -1):
+        output *= i
+    return output
 
 
 if __name__ == '__main__':
     # TODO:
     # implement testing
     pass
-    
-    
