@@ -1,14 +1,14 @@
 def even_number(lst):
     '''
     Given a list of integer as an input, return a new list contains all integers in lst that are even number.
-    
+
     input:
     lst - a list of integer numbers
 
     output:
     a new list contains all of the even numbers in the input list. 
     '''
-    
+
     pass
 
 
@@ -78,5 +78,5 @@ if __name__ == '__main__':
         'john': 3,
         'mike': 32,
         'anna': 34,
-        'leo': 16 }
+        'leo': 16}
     print(dict_example(dict))
