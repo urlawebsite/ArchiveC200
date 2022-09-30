@@ -8,8 +8,11 @@ def even_number(lst):
     output:
     a new list contains all of the even numbers in the input list. 
     '''
-
-    pass
+    nlst = []
+    for i in lst:
+        if i % 2 == 0:
+            nlst += [i]
+    return nlst
 
 
 def star_patern(n):
@@ -23,9 +26,12 @@ def star_patern(n):
     **
     ***
     ****
-    *****
+    ****
     '''
-    pass
+    for i in range(1, n+1):
+        for j in range(1, i+1):
+            print('*', end='')
+        print()
 
 
 def print_num(n):
@@ -43,6 +49,9 @@ def print_num(n):
     input:
     n-integr number
     '''
+    while n >= 0:
+        print(n)
+        n -= 1
 
     pass
 
@@ -62,7 +71,13 @@ def dict_example(dict):
 
     expected ouput: 'anna'
     '''
-    pass
+    max = 0
+    winner = ''
+    for key in dict:
+        if dict[key] > max:
+            nax = dict[key]
+            winner = key
+    return winner
 
 
 if __name__ == '__main__':
