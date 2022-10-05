@@ -43,30 +43,30 @@ example_lst = [[3, 4], ["cs200", 9.58]]
 # print(password)
 # print(i)
 
-# for i in range(5):
-#    if i == 3:
-#        continue
-#    print(i)
+for i in range(5):
+    if i == 3:
+        continue
+    print(i)
 
-dict = {
-    'item1': 55,
-    'item2': 24,
-    'item3': 122,
-    'item4': 55
-}
-dict['item6'] = 33
+# dict = {
+#    'item1': 55,
+#    'item2': 24,
+#    'item3': 122,
+#    'item4': 55
+# }
+#dict['item6'] = 33
 # print(dict)
 
-dict['item1'] = 45
+#dict['item1'] = 45
 # print(dict)
 
 # print(dict['item1'])
 
 # print(dict.values())
 
-for key in dict:
-    print(key)
+# for key in dict:
+#    print(key)
 
-for key in dict:
-    value = dict[key]
-    print(value)
+# for key in dict:
+#    value = dict[key]
+#    print(value)
