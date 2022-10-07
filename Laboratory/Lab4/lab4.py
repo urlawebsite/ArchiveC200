@@ -37,7 +37,6 @@ def star_patern(n):
 def print_num(n):
     '''
     given an input integer n, print numbers from n to 0 using while loops.
-
     for example for n = 5:
     5
     4
@@ -45,15 +44,12 @@ def print_num(n):
     2
     1
     0
-
     input:
     n-integr number
     '''
     while n >= 0:
         print(n)
         n -= 1
-
-    pass
 
 
 def dict_example(dict):
@@ -68,7 +64,6 @@ def dict_example(dict):
         'anna': 34
         'leo': 16
     }
-
     expected ouput: 'anna'
     '''
     max = 0
