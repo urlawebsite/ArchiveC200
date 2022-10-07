@@ -1,4 +1,4 @@
-
+import math
 def sum_of_list():
     """Expected Output:
        
@@ -10,7 +10,7 @@ def sum_of_list():
     total_sum = 0
     # Remember, we don't use the sum function in this class
     for item in list_to_sum:
-        return total_sum + item
+         total_sum += item
     return total_sum
 
 
@@ -22,7 +22,7 @@ def first_item_in_list():
     
     dog_list = ['Alaskan Malamute', 'Siberian Husky', 'Golden Retriever']
     
-    return dog_list[1]
+    return dog_list[0]
 
 
 def last_item_in_list():
@@ -44,7 +44,7 @@ def add_to_list():
     
     dog_list = ['Alaskan Malamute', 'Siberian Husky', 'Golden Retriever']
     
-    dog_list += 'Beagle'
+    dog_list.append('Beagle')
     dog_list.append(['Boykin Spaniel'])
     
     return dog_list
@@ -58,7 +58,7 @@ def get_from_list():
     
     dog_list = ['Alaskan Malamute', 'Siberian Husky', 'Golden Retriever']
     
-    return dog_list[3]
+    return dog_list[2]
 
 
 def if_statements(num):
@@ -90,7 +90,7 @@ def pythagorean_theorem(a, b):
     """
     # This one requires a change up at the top of the file
     # Hint: https://docs.python.org/3/library/math.html
-    return sqrt(a**2 + b**2)
+    return math.sqrt(a**2 + b**2)
 
 
 def triangle_wave(a, x):
@@ -107,14 +107,14 @@ def triangle_wave(a, x):
 
     Examples: triangle_wave(1, 2, 5) --> 0.4 (there is potential a rounding error, might be 0.40000000000000013. Just worry about the first 3)
     """
-    p1 = math.sin(2pi/(p x))
-    p2 = math.asin p1
+    p1 = math.sin(2*math.pi/(p*x))
+    p2 = math.asin(p1)
     f = 2(a) / pi
     return f * p2
 
 
 def add_two_to_ten():
-    a == 10
+    a = 10
     
     return a + 2
 
@@ -137,7 +137,7 @@ def power_plant(output):
         return 'way too low!'
     elif output > 50:
         return 'too high!'
-    elif output = 20:
+    elif output == 20:
         return 'just right'
     else:
         return 'something very bad has happened'
