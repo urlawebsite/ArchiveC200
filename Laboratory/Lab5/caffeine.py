@@ -1,6 +1,6 @@
 
 # Lab 4
-# 
+#
 # In a caffeine-induced all-nighter, your coworker Charlie Blockhead Brown has pushed the
 # following code to your company's github.  This code is crucial to maintaining Important
 # City System, and said system has been down all night.  Charlie never took C200, and so it
@@ -11,25 +11,25 @@ def flatten(deep_list):
     """
     Takes a "deep" list of lists representing strings and converts it
     into a "flattened" string.
-    
+
     e.g.
     flatten([['I'],
              ['l', 'o', 'v', 'e'],
              ['C', '2', '0', '0']]) 
     returns 
     "I love C200"
-    
+
     Parameters: A list of lists containing single character strings
     Returns: A list of strings
     """
     flattened = []
     for i in range(len(deep_list)):
-        current_string = ""
-        
-        for j in range(len(deep_list)):
-           current_string += deep_list[j][i]
+        current_string = " "
 
-        if i = len(deep_list):
+        for j in range(len(deep_list)):
+            current_string += deep_list[j][i]
+
+        if i == len(deep_list):
             flattened = flattened + current_string
         else:
             flattened = flattened + current_string + " "
@@ -41,5 +41,3 @@ def flatten(deep_list):
 print(flatten([['I']
                ['l', 'o', 'v', 'e'],
                ['C', '2', '0', '0']]))
-
-
