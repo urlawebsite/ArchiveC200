@@ -17,6 +17,8 @@ def factorial(n):
 
 
 def gl(lst1, lst2):
+    # This loops twice for some reason
+    # NEEDS FIXING
     nlst = []
     for i in range(len(lst1)):
         if lst1[i] > lst2[i]:
@@ -30,12 +32,16 @@ def gl(lst1, lst2):
 # INPUT argument n and number of terms
 # RETURN approximation of e(n) for num_terms.
 def my_e(n, num_terms):
-    pass
+    e = 0
+    for i in range(n):
+        for j in range(num_terms):
+            e += j**i/i
+    return e
+    # problem 4
+    # INPUT a string
+    # RETURN a dictionary of all the proper substrings with counts of occurences
 
 
-# problem 4
-# INPUT a string
-# RETURN a dictionary of all the proper substrings with counts of occurences
 def ss(x):
     pass
 
@@ -45,20 +51,13 @@ def ss(x):
 # RETURN for each list in list, replace old with new
 def lst_replace(old, new, lst):
     nlst = []
-    # for num_lst in lst:
-    #     for i in num_lst:
-    #         if i == old:
-    #             nlst.append(new)
-    #         else:
-    #             nlst.append(i)
-    # Other tested (FAILED)
-    # for i in range(len(lst)):
-    #     if lst[i] == old:
-    #         old = new
-    #         nlst.append(old)
-    #     else:
-    #         nlst.append(old)
-    # return nlst
+    for num_lst in lst:
+        for i in num_lst:
+            if i == old:
+                nlst.append(new)
+            else:
+                nlst.append(i)
+    return nlst
 
     pass
 
@@ -78,15 +77,15 @@ if __name__ == "__main__":
     # for i in range(6):
     #     print(f"{i}! = {factorial(i)}")
 
-    # # problem 2
+    # # # problem 2
     # p2 = [[[1, 0, 0, 1], [0, 1, 1, 0]], [[], []], [[1, 2, 3, 4], [5, 4, 3, 2]]]
 
     # for x, y in p2:
     #     print(f"{x,y} {gl(x,y)}")
 
-    # # problem 3
-    # print(math.exp(5))
-    # print(my_e(5, 16))
+    # problem 3
+    print(math.exp(5))
+    print(my_e(5, 16))
 
     # #problem 4
     # p4 = ["s","abc","abcabc","aa"]
@@ -95,11 +94,11 @@ if __name__ == "__main__":
     #     print(ss(d))
 
     # problem 5
-    lst = [[1, 2], [2, [2], 1], [], [1, 1, ]]
-    print(lst_replace(1, "dog", [[1, 2], [2, [2], 1], [], [1, 1, ]]))
-    print(lst_replace(2, "dog", [[1, 2], [2, [2], 1], [], [1, 1, ]]))
-    print(lst_replace([2], "dog", [[1, 2], [2, [2], 1], [], [1, 1, ]]))
-    print(lst_replace(1, "dog", []))
+    # lst = [[1, 2], [2, [2], 1], [], [1, 1, ]]
+    # print(lst_replace(1, "dog", [[1, 2], [2, [2], 1], [], [1, 1, ]]))
+    # print(lst_replace(2, "dog", [[1, 2], [2, [2], 1], [], [1, 1, ]]))
+    # print(lst_replace([2], "dog", [[1, 2], [2, [2], 1], [], [1, 1, ]]))
+    # print(lst_replace(1, "dog", []))
 
     # #problem 6
     # p6 = [[[1],2,[[3]]], [[1,[2,[3]],4,[[5]],6,[7,8]]],
