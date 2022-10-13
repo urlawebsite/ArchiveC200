@@ -49,3 +49,5 @@ final version.
 
 # m1, m2, d = 1, 6*math.exp(24), 4*math.exp(6)
 # print(gravity(m1, m2, d))
+
+# Finished
