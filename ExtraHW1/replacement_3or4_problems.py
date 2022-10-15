@@ -1,3 +1,4 @@
+from heapq import nlargest
 import math
 
 # leave unchanged if working individually
@@ -17,26 +18,29 @@ def factorial(n):
 
 
 def gl(lst1, lst2):
-    # This loops twice for some reason
-    # NEEDS FIXING
+    z = 0
+    y = 0
     nlst = []
     for i in range(len(lst1)):
-        if lst1[i] > lst2[i]:
-            nlst.append(lst1)
-        else:
-            nlst.append(lst2)
+        if lst1[i] >= lst2[i]:
+            z = lst1[i]
+            nlst.append(z)
+        elif lst1[i] <= lst2[i]:
+            y = lst2[i]
+            nlst.append(y)
     return nlst
 
+    # problem 3
+    # INPUT argument n and number of terms
+    # RETURN approximation of e(n) for num_terms.
 
-# problem 3
-# INPUT argument n and number of terms
-# RETURN approximation of e(n) for num_terms.
+
 def my_e(n, num_terms):
     e = 0
-    for i in range(n):
-        for j in range(num_terms):
-            e += j**i/i
+    for i in range(num_terms+1):
+        e += n**i/factorial(i)
     return e
+
     # problem 4
     # INPUT a string
     # RETURN a dictionary of all the proper substrings with counts of occurences
@@ -77,7 +81,7 @@ if __name__ == "__main__":
     # for i in range(6):
     #     print(f"{i}! = {factorial(i)}")
 
-    # # # problem 2
+    # # # # problem 2
     # p2 = [[[1, 0, 0, 1], [0, 1, 1, 0]], [[], []], [[1, 2, 3, 4], [5, 4, 3, 2]]]
 
     # for x, y in p2:
