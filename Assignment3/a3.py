@@ -2,7 +2,9 @@ import math
 # math.exp() = e^x
 # math.ceil = rounds
 # math.log(x) = log_e(x) or ln(x)
-
+"""
+Things not allowed is min,max,append, while loops, and sum
+"""
 # Problem 1
 
 # INPUT n0 start colony size, m growth rate, t time
@@ -46,9 +48,14 @@ def L(V, A, C_l):
 
 
 def q(t):
-    d = t[0]**2 - 4*t[1]*t[2]
+    a = t[0]
+    b = t[1]
+    c = t[2]
+    d = a**2 - 4*b*c
     if d > 0:
         return True
+    elif d == 0:
+        return -b/2*a
     else:
         return False
     ###########################################################################
@@ -344,16 +351,18 @@ if __name__ == "__main__":
     testing.
     """
 
-    # #problem 1
-#print(N(500, 100, 4))
+# problem 1
+# print(N(500, 100, 4))
 # print(N_t(1000))
-#print(W(10, 1))
-#print(L(33.8, 512, 0.515))
+# print(W(10, 1))
+# print(L(33.8, 512, 0.515))
 
 # problem 2
-#print(q((1, 4, -21)))
-#print(q((3, 6, 10)))
-#print(q((1, 0, -4)))
+# print(q((1, 4, -21)))
+# print(q((3, 6, 10)))
+# print(q((1, 0, -4)))
+# print(q((2, -4, 2)))
+
 
 # problem 3
 #receipt = [[1, 1.45], [3, 10.00], [2, 1.45], [5, 2.00]]

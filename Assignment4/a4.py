@@ -1,9 +1,5 @@
-from ast import Num
-from functools import total_ordering
-from heapq import nlargest
 import math
-from multiprocessing.managers import DictProxy
-from pyexpat.errors import XML_ERROR_ABORTED
+
 
 # Problem 1
 # INPUT list of 0 and 1

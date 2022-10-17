@@ -1,19 +1,31 @@
 import math
+from os import remove
 
 # leave unchanged if working individually
-# My Partner is ________________________
+# My Partner is Anthony Reyes
 
 
 # problem 1
 # input 0,1,2,...
 # return factorial
 def factorial(n):
-    a = math.factorial(n)
-    return a
+    f = n-1
+    t = 0
+    z = 1
+    y = []
+    if n == 0:
+        return 1
+    # a = math.factorial(n)
+    if n > 0:
+        for i in range(1, n+1):
+            y.append(i)
+        for x in y:
+            t = x * (x-1)
+    return t
 
-# problem 2
-# input two lists (containing numbers) of same length
-# return a list of the greater number at each position of the input lists
+    # problem 2
+    # input two lists (containing numbers) of same length
+    # return a list of the greater number at each position of the input lists
 
 
 def gl(lst1, lst2):
@@ -81,14 +93,14 @@ if __name__ == "__main__":
         print(f"{i}! = {factorial(i)}")
 
     # # # # problem 2
-    p2 = [[[1, 0, 0, 1], [0, 1, 1, 0]], [[], []], [[1, 2, 3, 4], [5, 4, 3, 2]]]
+    # p2 = [[[1, 0, 0, 1], [0, 1, 1, 0]], [[], []], [[1, 2, 3, 4], [5, 4, 3, 2]]]
 
-    for x, y in p2:
-        print(f"{x,y} {gl(x,y)}")
+    # for x, y in p2:
+    #     print(f"{x,y} {gl(x,y)}")
 
     # problem 3
-    print(math.exp(5))
-    print(my_e(5, 16))
+    # print(math.exp(5))
+    # print(my_e(5, 16))
 
     # #problem 4
     # p4 = ["s","abc","abcabc","aa"]
