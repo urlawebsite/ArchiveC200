@@ -8,20 +8,28 @@ from os import remove
 # problem 1
 # input 0,1,2,...
 # return factorial
+"""
+Old answer is wrong, and I didn't realize 
+your suppose to make the factorial 
+unction, and not add math.factorial
+old answer will be commented, I'm sorry for the inconvience. 
+"""
+
+
 def factorial(n):
-    f = n-1
-    t = 0
+ # a = math.factorial(n)
     z = 1
     y = []
     if n == 0:
         return 1
-    # a = math.factorial(n)
     if n > 0:
         for i in range(1, n+1):
             y.append(i)
         for x in y:
-            t = x * (x-1)
-    return t
+            z *= x
+    elif n < 0:
+        return "Only positive numbers"
+    return z
 
     # problem 2
     # input two lists (containing numbers) of same length
