@@ -97,8 +97,8 @@ if __name__ == "__main__":
     """uncomment if you'd like"""
 
     # # problem 1
-    for i in range(6):
-        print(f"{i}! = {factorial(i)}")
+    # for i in range(6):
+    #     print(f"{i}! = {factorial(i)}")
 
     # # # # problem 2
     # p2 = [[[1, 0, 0, 1], [0, 1, 1, 0]], [[], []], [[1, 2, 3, 4], [5, 4, 3, 2]]]
