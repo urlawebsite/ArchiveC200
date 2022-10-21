@@ -3,9 +3,6 @@
 ###########################################################
 
 
-from tempfile import _TemporaryFileWrapper
-
-
 def factorial(n):
     """
     Recursive function to calculate the factorial of n
@@ -123,11 +120,14 @@ def memo_only_ints(xlist):
     """
     xtup = tuple(xlist)
     if xtup not in d_only.keys():
-        d_only[xtup] = []
-    elif type(xlist[0]) != int:
-        d_only[xtup] = memo_only_ints(xlist[1:])
-    else:
-        d_only[xtup] = [xlist[0]]+memo_only_ints(xlist[1:])
+        if xlist == []:
+            d_only[xtup] = []
+        elif type(xlist[0]) != int:
+            d_only[xtup] = memo_only_ints(xlist[1:])
+        else:
+            d_only[xtup] = [xlist[0]]+memo_only_ints(xlist[1:])
+
+    return d_only[xtup]
 
 
 if __name__ == "__main__":
@@ -138,11 +138,13 @@ if __name__ == "__main__":
     print(factorial(4))
 
     # Prob 2
-    # l = [1, 2, 3, "type"]
-    # print(only_ints(l))
+    l = [1, 2, 3, "type"]
+    print(only_ints(l))
 
     # Prob 3
     print(tail_factorial(4))
 
     # Prob 4
-    # print(memo_factorial(5-4))
+    print(memo_factorial(5))
+
+    print(memo_only_ints([5, "C"]))
