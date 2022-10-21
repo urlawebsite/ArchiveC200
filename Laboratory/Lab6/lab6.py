@@ -2,6 +2,10 @@
 # factorial
 ###########################################################
 
+
+from tempfile import _TemporaryFileWrapper
+
+
 def factorial(n):
     """
     Recursive function to calculate the factorial of n
@@ -11,7 +15,11 @@ def factorial(n):
     Returns:
         n! = n*(n-1)*...*2*1
     """
-    pass
+    if n == 0:
+        return 1
+    else:
+        return n*factorial(n-1)
+
 
 def tail_factorial(n, a=1):
     """
@@ -22,9 +30,15 @@ def tail_factorial(n, a=1):
     Returns:
         n! = n*(n-1)*...*2*1
     """
-    pass
+    if n == 0:
+        return a
+    else:
+        return tail_factorial(n-1, a=a*n)
+
 
 d = {}
+
+
 def memo_factorial(n):
     """
     Memoized function to calculate the factorial of n
@@ -34,11 +48,17 @@ def memo_factorial(n):
     Returns:
         n! = n*(n-1)*...*2*1
     """
-    pass
+    if n not in d.keys():
+        if n == 1:
+            d[n] = 1
+        else:
+            d[n] = n * memo_factorial(n-1)
+    return d[n]
 
 ###########################################################
 # only_ints
 ###########################################################
+
 
 def only_ints(xlist):
     """
@@ -51,7 +71,13 @@ def only_ints(xlist):
         xlist, but with only the 'int'-type elements kept.
 
     """
-    pass
+    if xlist == []:
+        return xlist
+    elif type(xlist[0]) != int:
+        return [] + only_ints(xlist[1:])
+    else:
+        return [xlist[0]] + only_ints(xlist[1:])
+
 
 def tail_only_ints(xlist, a=[]):
     """
@@ -64,9 +90,26 @@ def tail_only_ints(xlist, a=[]):
         xlist, but with only the 'int'-type elements kept.
 
     """
-    pass
+    # if xlist == []:
+    #     return a
+    # elif type(xlist[0]) != int:
+    #     return a + only_ints(xlist[1:])
+    # else:
+    #     return [xlist[0]] + only_ints(xlist[1:])
 
-d = {}
+    # Answer not working
+
+    if xlist == []:
+        return a
+    elif type(xlist[0]) != int:
+        return tail_only_ints([]+xlist[1:], a=a)
+    else:
+        return tail_only_ints(xlist[1:], a=[xlist[0]]+a)
+
+
+d_only = {}
+
+
 def memo_only_ints(xlist):
     """
     Recursive function to return a list with all non-ints taken
@@ -78,9 +121,28 @@ def memo_only_ints(xlist):
         xlist, but with only the 'int'-type elements kept.
 
     """
-    pass
+    xtup = tuple(xlist)
+    if xtup not in d_only.keys():
+        d_only[xtup] = []
+    elif type(xlist[0]) != int:
+        d_only[xtup] = memo_only_ints(xlist[1:])
+    else:
+        d_only[xtup] = [xlist[0]]+memo_only_ints(xlist[1:])
+
 
 if __name__ == "__main__":
     # Write your own print statements here
     # to briefly test your code
     pass
+    # Prob 1
+    print(factorial(4))
+
+    # Prob 2
+    # l = [1, 2, 3, "type"]
+    # print(only_ints(l))
+
+    # Prob 3
+    print(tail_factorial(4))
+
+    # Prob 4
+    # print(memo_factorial(5-4))
