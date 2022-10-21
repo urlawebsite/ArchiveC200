@@ -29,7 +29,7 @@ def N_t(t):
 def W(P_i, P_f):
     R = 8.314
     T = 300
-    work = R*T*math.log(P_i)/P_f
+    work = R*T*math.log(P_i/P_f)
     return math.ceil(work)
     # INPUT V miles per hour, A area, C_l lift coefficient
     # RETURN lbs
@@ -70,9 +70,12 @@ def q(t):
 
 
 def m(x, lst):
-    total = 0
-    for num in lst:
-        total += num
+    e = False
+    for i in lst:
+        # for j in i:
+        for h in x:
+            if i == h:
+                print(i)
 
 
 def amt(r, no_tax):
@@ -104,7 +107,6 @@ def f(p0, p1):
         return (m, b)
     else:
         return ()
-
 
     ###########################################################################
     # Functions for Problem 5
@@ -365,8 +367,9 @@ if __name__ == "__main__":
 
 
 # problem 3
-#receipt = [[1, 1.45], [3, 10.00], [2, 1.45], [5, 2.00]]
-#no_tax = [33, 5, 2]
+receipt = [[1, 1.45], [3, 10.00], [2, 1.45], [5, 2.00]]
+no_tax = [33, 5, 2]
+print(m(no_tax, receipt))
 #print(amt(receipt, no_tax))
 
 # #problem 4
