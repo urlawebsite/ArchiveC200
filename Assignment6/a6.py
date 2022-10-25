@@ -1,5 +1,6 @@
 import math
-import pygame, sys
+import pygame
+import sys
 from pygame.locals import *
 import random as rn
 
@@ -8,45 +9,88 @@ import random as rn
 
 # Problem 1
 # Recursive functions
-# Implement the recursion as per the equations shown in Problem-1 in HW PDF 
+# Implement the recursion as per the equations shown in Problem-1 in HW PDF
 # for each of the functions below.
+
+
 def s(n):
-    pass
+    if n == 0:
+        return 0
+    else:
+        return s(n-1)+n
+
 
 def p(n):
-    pass
+    if n == 0:
+        return 10000
+    else:
+        return p(n-1)+0.02 * p(n-1)
+
 
 def b(n):
-    pass 
+    if n <= 0:
+        return "error cannot anything below range"
+    elif n == 1:
+        return 2
+    elif n == 2:
+        return 3
+    else:
+        return b(n-1)+b(n-2)
+
 
 def c(n):
-    pass
+    if n <= 0:
+        return "error cannot anything below range"
+    elif n == 1:
+        return 9
+    else:
+        return 9*c(n-1)+10**(n-1) - c(n-1)
+
 
 def d(n):
-    pass
+    if n < 0:
+        return "error cannot anything below range"
+    elif n == 0:
+        return 1
+    else:
+        return 3*d(n-1)+1
+        pass
+        # Problem 2
+        # Implement via equation 19 in HW PDF.
 
 
-# Problem 2
-# Implement via equation 19 in HW PDF.
-def min(x,y):
-    pass
+def min(x, y):
+    if x < y:
+        return x
+    if y <= x:
+        return y
+    # Implement via equation 20-21 as per the instructios in the PDF.
 
-# Implement via equation 20-21 as per the instructios in the PDF.
+
 def MIN(lst):
-    pass
-
+    a = 0
+    for i in range(len(lst)):
+        a += i
+    if a == 1:
+        return min(lst[0], lst[1])
+    if a == 0:
+        return min(lst[0], lst[0])
+    else:
+        return min(lst[0], MIN(lst[1:]))
 
 
 # Problem 3
 # Input: A string in hexadecimal format
 # Output: The deciaml (integer) equivalent of the input
 def hex_dec(hex):
-    pass
-    
+    a = hex.upper()
+    return int(a, 16)
 
 # Problem 4
 # Input: A number (decimal format) and base
 # Output: The string representation of the converted number in base.
+
+
 def c_(dn, base):
     pass
 
@@ -54,7 +98,7 @@ def c_(dn, base):
 # Problem 5
 # Input: An object x and a list
 # Output: List with all occurences of x removed
-def rr(x,lst):
+def rr(x, lst):
     pass
 
 
@@ -76,7 +120,7 @@ def mystic(xstr):
 # Implement the recursion as per the HW PDF instructions.
 def A(m, n):
     pass
- 
+
 
 # Problem 8
 # Input: x and stop
@@ -86,6 +130,8 @@ def ii(x, stop):
 
 # Implement as per HW pdf instructions.
 # Will produce output equal to equation-32 but with loop.
+
+
 def iii(stop):
     def closed(n):
         return (1/4)*(n**2)*(n+1)**2
@@ -93,35 +139,47 @@ def iii(stop):
 
 # Implement as per HW pdf instructions.
 # Will produce output equal to equation-33 but with loop.
+
+
 def iv(stop):
     def closed(n):
         return (1/2)*n*(6*(n**2)-(3*n)-1)
     pass
 
-# Implement as per HW pdf instructions. 
-# Will produce output equal to equation-34 but with loop. 
-def vi(x,stop):
-    def closed(x,n):
+# Implement as per HW pdf instructions.
+# Will produce output equal to equation-34 but with loop.
+
+
+def vi(x, stop):
+    def closed(x, n):
         return math.sin(x*(2**n))/((2**n)*math.sin(x))
-    pass    
+    pass
 
 # Problem 9
 # Implement the model as per the instructions in HW PDF.
+
+
 def I(t):
     pass
 
 # Implement the model as per the instructions in HW PDF.
+
+
 def J(t):
     pass
 
 # Implement the model as per the instructions in HW PDF.
+
+
 def K(t):
     pass
 
 # Input: a model
 # Output: List of months and quality index for those months (formatted as per the output in HW PDF)
+
+
 def env(f):
-    
+
     months = ["Jan", "Feb", "Mar", "Apr", "May",
               "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     pass
@@ -135,7 +193,7 @@ def env(f):
 # If the code does not run in VSC (and complaints about pygame module not found) then you can also run it
 # by changing the directory to Assignment6 and running it manually as follows:
 
-# Open a new Terminal in VSC (change directory to Assignment6) 
+# Open a new Terminal in VSC (change directory to Assignment6)
 # cd Assignment6 (cd command is used to change directory to Assignment6)
 
 # Run the a6.py as follows
@@ -145,9 +203,9 @@ def env(f):
 
 # REMEMBER TO COMMENT ALL CODE FOR PROBLEM 10 before submitting to AUOTOGRADER (only for problem 10).
 # Otherwise, it would return with an error. This is because the Autograder can't run graphical outputs for you
-# as of now. 
+# as of now.
 
-# So, once you are understand the code, have run it a few times, comment it back. 
+# So, once you are understand the code, have run it a few times, comment it back.
 
 # For some of you, at-first it may be puzzling that nothing is happening, look out for a small
 # graphical window, it may show behind your VSC window, so you may have to minimize VSC to look at it.
@@ -187,7 +245,7 @@ def env(f):
 # #RETURN nothing (preparing for next week)
 # def s(loc,width):
 #     draw_triangle(loc,width)
-    
+
 # #calls draw triangle once
 # #top is at 240,0 width = 440
 # s((240,0),440)
@@ -209,13 +267,14 @@ if __name__ == "__main__":
     '''
     Please add some of your own tests too for good testing
     '''
-    #Problem 1
+    # Problem 1
     # print(f"    s, p,     d")
     # for i in range(10):
     #     print(f"{i}: {s(i),p(i),d(i)}")
     # print(f"    b, c")
-    # for i in range(1,10):
+    # for i in range(1, 10):
     #     print(f"{i}: {b(i),c(i)}")
+    # Answers
     # s, p,     d
     # 0: (0, 10000, 1)
     # 1: (1, 10200.0, 4)
@@ -238,47 +297,48 @@ if __name__ == "__main__":
     # 8: (55, 58388608)
     # 9: (89, 567108864)
 
-    #problem 2
-    # prob2 = [[0,1,-1],[10],[11,10,9,8]]
+    # problem 2
+    # prob2 = [[0, 1, -1], [10], [11, 10, 9, 8]]
     # for i in prob2:
     #     print(f"{i} {MIN(i)}")
+    # Answers
     # [0, 1, -1] -1
     # [10] 10
     # [11, 10, 9, 8] 8
 
-    #problem 3
-    # prob3 = ['c1',"C1","7De","7dE","10F"]
+    # problem 3
+    # prob3 = ['c1', "C1", "7De", "7dE", "10F", "8A"]
     # for i in prob3:
-    #     print(f"{i} {hex_dec(i)} {int(i,16)}") 
+    #     print(f"{i} {hex_dec(i)} {int(i,16)}")
     # c1 193 193
     # C1 193 193
     # 7De 2014 2014
     # 7dE 2014 2014
     # 10F 271 271
 
-    #problem 4
-    # for i in range(14):
-    #     b2,b3,b4 = c_(i,2),c_(i,3),c_(i,4)
-    #     print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
+    # problem 4
+    for i in range(14):
+        b2, b3, b4 = c_(i, 2), c_(i, 3), c_(i, 4)
+        print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
 
-    #problem 5
+    # problem 5
     # lst = [1,1,1,2,2,0]
     # print(rr(1,lst))
     # for i in [4,3,1]:
     #     print(oal(1,i,lst))
 
-    #problem 6
+    # problem 6
     # data = ["ABBa","ratsliveonnoevilstar", "ATOYOTA","ccc","cc","ccedc",]
     # for d in data:
     #     print(mystic(d))
 
-    #problem 7
+    # problem 7
     # for i in range(4):
     #     for j in range(4):
     #         print(f"A({i,j}) = {A(i,j)},  ", end="")
-    ###when you have time: print(A(4,1))
+    # when you have time: print(A(4,1))
 
-    #problem 8
+    # problem 8
     # x,stop = math.pi/4,5
     # print(ii(x,stop))
     # print(math.sin(x))
@@ -286,9 +346,7 @@ if __name__ == "__main__":
     # print(iv(5))
     # print(vi(math.pi,5))
 
-    #problem 9
+    # problem 9
     # print("Model I:\n", env(I))
     # print("Model J:\n", env(J))
     # print("Model K:\n", env(K))
-
-
