@@ -99,32 +99,82 @@ def c_(dn, base):
 # Input: An object x and a list
 # Output: List with all occurences of x removed
 def rr(x, lst):
-    pass
+    nlst = []
+    if lst == []:
+        return []
+    # if the x is equal to y aka lst
+    else:
+        if lst[0] != x:
+            return [lst[0]] + rr(x, lst[1:])
+        else:
+            return rr(x, lst[1:])
+
+        # Input: An object x, non-negative number n, and a list
+        # Output: A boolean indicating if x appeared at-least n times or not in the list
 
 
-# Input: An object x, non-negative number n, and a list
-# Output: A boolean indicating if x appeared at-least n times or not in the list
 def oal(x, n, lst):
-    # Create your local function here o_() and call it with required arguments.
-    # You can use the value returned by o_(), as the final return value of oal() as well.
-    pass
+    if n < 0:
+        return "Non-negative integer please"
+
+    def o_(lst, cnt):
+        if lst == []:
+            return cnt >= n
+        else:
+            if lst[0] == x:
+                return o_(lst[1:], cnt+1)
+            else:
+                return o_(lst[1:], cnt)
+
+    return o_(lst, 0)
+
+    # Problem 6
+    # Implement a non-arcane recursive version of mystic
+
+# Original Function
+
+# def mystic(xstr):
+    # return len(xstr) == 1 or (len(xstr) == 2 and xstr[0] == xstr[1]) or (
+    #         xstr[0] == xstr[len(xstr)-1] and mystic(xstr[1:len(xstr)-1]))
 
 
-# Problem 6
-# Implement a non-arcane recursive version of mystic
 def mystic(xstr):
-    pass
+    if xstr:
+        if len(xstr) == 1:
+            return True
+        elif len(xstr) == 2 and xstr[0] == xstr[1]:
+            return True
 
-
+        if xstr[0] == xstr[len(xstr)-1] and mystic(xstr[1:len(xstr)-1]):
+            return True
+        else:
+            return False
+    else:
+        return False
 # Problem 7
 # Implement the recursion as per the HW PDF instructions.
+
+
 def A(m, n):
-    pass
+    #     if m == 0:
+    #         return n+1
+    # # A(m+1,0) = A(m,1)
+    #     # elif A(m+1, n == 0):
+    #     #     return A(m+1, 1) = A(m, 1)
+    #     else:
+    #         if n == 0:
+    #             return m+1
+
+    # # A(m+1,n+1) = return
+    #     # else:
+    #     #     return A(m, A(m+1, n))
+    #         # Problem 8
+    #         # Input: x and stop
+    #         # Output: Approximated value of sin(x) until stop
+    if m == 0:
+        return n+1
 
 
-# Problem 8
-# Input: x and stop
-# Output: Approximated value of sin(x) until stop
 def ii(x, stop):
     pass
 
@@ -317,26 +367,29 @@ if __name__ == "__main__":
     # 10F 271 271
 
     # problem 4
-    for i in range(14):
-        b2, b3, b4 = c_(i, 2), c_(i, 3), c_(i, 4)
-        print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
+    # for i in range(14):
+    #     b2, b3, b4 = c_(i, 2), c_(i, 3), c_(i, 4)
+    #     print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
 
-    # problem 5
-    # lst = [1,1,1,2,2,0]
-    # print(rr(1,lst))
-    # for i in [4,3,1]:
-    #     print(oal(1,i,lst))
+    # # problem 5
+    # lst = [1, 1, 1, 2, 2, 0]
+    # lst3 = []
+    # lst2 = [2, 3, 4, 1]
+    # # print(rr(1, lst2))
+    # for i in [4, 3, 1]:
+    #     print(oal(1, i, lst2))
 
     # problem 6
-    # data = ["ABBa","ratsliveonnoevilstar", "ATOYOTA","ccc","cc","ccedc",]
+    # data = ["ABBa", "ratsliveonnoevilstar", "ATOYOTA", "ccc", "cc", "ccedc", ]
     # for d in data:
     #     print(mystic(d))
 
     # problem 7
-    # for i in range(4):
-    #     for j in range(4):
-    #         print(f"A({i,j}) = {A(i,j)},  ", end="")
-    # when you have time: print(A(4,1))
+    for i in range(4):
+        for j in range(4):
+            print(f"A({i,j}) = {A(i,j)}  ")
+    # when you have time:
+    # print(A(4, 1))
 
     # problem 8
     # x,stop = math.pi/4,5
