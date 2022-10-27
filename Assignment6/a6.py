@@ -92,12 +92,17 @@ def hex_dec(hex):
 
 
 def c_(dn, base):
-    pass
+    (a) = str(dn % base)
+    c = dn//base
+    if c == 0:
+        return a
+    else:
+        return c_(c, base) + a
+    # Problem 5
+    # Input: An object x and a list
+    # Output: List with all occurences of x removed
 
 
-# Problem 5
-# Input: An object x and a list
-# Output: List with all occurences of x removed
 def rr(x, lst):
     nlst = []
     if lst == []:
@@ -142,11 +147,18 @@ def mystic(xstr):
     if xstr:
         if len(xstr) == 1:
             return True
-        elif len(xstr) == 2 and xstr[0] == xstr[1]:
-            return True
+        elif len(xstr) == 2:
+            if xstr[0] == xstr[1]:
+                return True
+            else:
+                return False
 
-        if xstr[0] == xstr[len(xstr)-1] and mystic(xstr[1:len(xstr)-1]):
-            return True
+        if xstr[0] == xstr[len(xstr)-1]:
+            return mystic(xstr[1:len(xstr)-1])
+            # if mystic(xstr[1:len(xstr)-1]):
+            #     return True
+            # else:
+            #     return False
         else:
             return False
     else:
@@ -156,28 +168,23 @@ def mystic(xstr):
 
 
 def A(m, n):
-    #     if m == 0:
-    #         return n+1
-    # # A(m+1,0) = A(m,1)
-    #     # elif A(m+1, n == 0):
-    #     #     return A(m+1, 1) = A(m, 1)
-    #     else:
-    #         if n == 0:
-    #             return m+1
-
-    # # A(m+1,n+1) = return
-    #     # else:
-    #     #     return A(m, A(m+1, n))
-    #         # Problem 8
-    #         # Input: x and stop
-    #         # Output: Approximated value of sin(x) until stop
     if m == 0:
         return n+1
+    elif m > 0 and n == 0:
+        return A(m-1, 1)
+    elif m > 0 and n > 0:
+        return A(m-1, A(m, n-1))
+# Problem 8
+# Input: x and stop
+# Output: Approximated value of sin(x) until stop
+# All problems must use a recursive function
 
 
 def ii(x, stop):
-    pass
-
+    if stop == 5:
+        # return (-1)**stop * (x**(2*stop+1))/(math.factorial(2*stop+1))
+        # else:
+        return (-1)**stop * (x**(2*stop+1))/(math.factorial(2*stop+1)) + ii(x, stop+1)
 # Implement as per HW pdf instructions.
 # Will produce output equal to equation-32 but with loop.
 
@@ -210,7 +217,7 @@ def vi(x, stop):
 
 
 def I(t):
-    pass
+    return 5*t+t+400/2*t+2*t + 90
 
 # Implement the model as per the instructions in HW PDF.
 
@@ -367,9 +374,9 @@ if __name__ == "__main__":
     # 10F 271 271
 
     # problem 4
-    # for i in range(14):
-    #     b2, b3, b4 = c_(i, 2), c_(i, 3), c_(i, 4)
-    #     print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
+    for i in range(14):
+        b2, b3, b4 = c_(i, 2), c_(i, 3), c_(i, 4)
+        print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
 
     # # problem 5
     # lst = [1, 1, 1, 2, 2, 0]
@@ -384,16 +391,16 @@ if __name__ == "__main__":
     # for d in data:
     #     print(mystic(d))
 
-    # problem 7
-    for i in range(4):
-        for j in range(4):
-            print(f"A({i,j}) = {A(i,j)}  ")
-    # when you have time:
+    # # problem 7
+    # for i in range(4):
+    #     for j in range(4):
+    #         print(f"A({i,j}) = {A(i,j)}  ")
+    # # when you have time:
     # print(A(4, 1))
 
     # problem 8
-    # x,stop = math.pi/4,5
-    # print(ii(x,stop))
+    # x, stop = math.pi/4, 5
+    # print(ii(x, stop))
     # print(math.sin(x))
     # print(iii(5))
     # print(iv(5))
