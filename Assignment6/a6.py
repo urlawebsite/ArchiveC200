@@ -92,7 +92,7 @@ def hex_dec(hex):
 
 
 def c_(dn, base):
-    (a) = str(dn % base)
+    a = str(dn % base)
     c = dn//base
     if c == 0:
         return a
