@@ -63,7 +63,7 @@ def writeEx2():
     stuff = ["a", "b", "c", "d", "e", "f"]
     with open("Laboratory/Lab7/wrong.txt", "w") as fileWrites:
         for s in stuff:
-            fileWrites.write(s)
+            fileWrites.write(s+"\n")
     pass
 
 
