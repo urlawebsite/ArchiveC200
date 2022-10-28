@@ -4,7 +4,7 @@ import math
 # from pygame.locals import *
 import random as rn
 
-# Name of your programmig partner
+# Name of your programming partner
 # Name:
 
 # Problem 1
@@ -199,7 +199,8 @@ def iii(stop):
     for n in range(1, stop+1):
         sum += n**3
 
-    return [sum, closed(stop)]
+    return [round(sum, 2),
+            round(closed(stop), 2)]
 
 # Implement as per HW pdf instructions.
 # Will produce output equal to equation-33 but with loop.
@@ -211,7 +212,8 @@ def iv(stop):
     sum = 0
     for i in range(1, stop+1):
         sum += (3*i-2)**2
-    return [sum, closed(stop)]
+    return [round(sum, 2),
+            round(closed(stop), 2)]
 
 # Implement as per HW pdf instructions.
 # Will produce output equal to equation-34 but with loop.
@@ -221,9 +223,11 @@ def vi(x, stop):
     def closed(x, n):
         return math.sin(x*(2**n))/((2**n)*math.sin(x))
     prod = 1
+    a = 0
     for i in range(1, stop+1):
         prod *= (math.cos(2**(i-1)*x))
-    return round([prod, closed(x, stop)])
+    return [round(prod, 2),
+            round(closed(x, stop), 2)]
     pass
 
 # Problem 9
@@ -237,9 +241,9 @@ def I(t):
 
 
 def J(t):
-    data[t]
     data = [60.0, 59.00, 58.00, 55.26, 53.85, 52.8,
             52.17, 51.55, 49.00, 46.26, 43.52, 50.76]
+    return data[t]
 
 # Implement the model as per the instructions in HW PDF.
 
@@ -252,12 +256,22 @@ def K(t):
 
 
 def env(f):
-
     months = ["Jan", "Feb", "Mar", "Apr", "May",
               "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    pass
+    a = 0
+    index = 0
+    nlst = []
+    for i in range(len(months)):
+        index = round(f(i+1)-f(i), 2)
+        if index < a:
+            a = index
+            index = 0
+            nlst = []
+            nlst += [months[i], months[i+1]]
+        elif index == a:
+            nlst += [months[i], months[i+1]]
 
-
+    return [nlst, a]
 # Problem-10 is not graded.
 
 # Uncomment the below code to see the graphical output cretaed by Pygame
@@ -426,3 +440,5 @@ if __name__ == "__main__":
     # print("Model I:\n", env(I))
     # print("Model J:\n", env(J))
     # print("Model K:\n", env(K))
+
+    print(round(0.234, 2))
