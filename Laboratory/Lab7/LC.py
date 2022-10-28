@@ -13,11 +13,13 @@ def zero_every_other(xlist):
             xlist[i] = 0
     return xlist
 
+
 def zero_every_other_comp(xlist):
     """
     Rewrite zero_every_other using a list comprehension
     """
     pass
+
 
 def tempreture(temp_dict):
     """

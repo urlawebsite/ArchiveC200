@@ -1,4 +1,6 @@
+from importlib.resources import contents
 import os
+
 
 def getCurrentDirectory():
     """
@@ -12,14 +14,16 @@ def getCurrentDirectory():
     return os.getcwd()
 
 
-
-
 def readingEx1():
     """
     This function will not return anything. 
 
     This function will be a "workspace" for us to practice reading files
     """
+    with open("Laboratory/Lab7/blank.txt", "r") as someFile:
+        someFile = open("Laboratory/Lab7/blank.txt", "r")
+        contents = someFile.read()
+        return contents
     pass
 
 
@@ -29,6 +33,10 @@ def readingEx2():
 
     This function will be a "workspace" for us to practice reading files
     """
+    with open("Laboratory/Lab7/blank.txt", "r") as someFile:
+        someFile = open("Laboratory/Lab7/blank.txt", "r")
+        contents = someFile.readlines()
+        return contents
     pass
 
 
@@ -38,6 +46,11 @@ def writeEx1():
 
     This function will be a "workspace" for us to practice reading files
     """
+    stuff = ["a", "b", "c", "d", "e", "f"]
+    with open("Laboratory/Lab7/wrong.txt", "w") as fileWrites:
+        for s in stuff:
+            fileWrites.write(s)
+
     pass
 
 
@@ -47,11 +60,14 @@ def writeEx2():
 
     This function will be a "workspace" for us to practice reading files
     """
+    stuff = ["a", "b", "c", "d", "e", "f"]
+    with open("Laboratory/Lab7/wrong.txt", "w") as fileWrites:
+        for s in stuff:
+            fileWrites.write(s)
     pass
 
 
-
-def FileIO_example(filePath, newFile): 
+def FileIO_example(filePath, newFile):
     '''
     Given a file path, we want to open the file, read each line and count
     the number of vocabs in each line. We will write to
@@ -80,13 +96,13 @@ if __name__ == "__main__":
     print("Reading")
     readex1 = readingEx1()
     print("~"*30)
-    print(readex1, end="") # end= removes the \n automatically added
+    print(readex1, end="")  # end= removes the \n automatically added
     print("*EOF*")
     print("-" * 20)
-    
+
     readex2 = readingEx2()
     print("~"*30)
-    print(readex2, end="") # end= removes the \n automatically added
+    print(readex2, end="")  # end= removes the \n automatically added
     print("*EOF*")
     print("-" * 20)
     print()
@@ -96,6 +112,7 @@ if __name__ == "__main__":
     writeEx1()
     writeEx2()
     print()
-    print("Strip Lab Result: " + str(FileIO_example("Laboratory/Lab8/testing.data", "Laboratory/Lab8/clean.txt")))
+    print("Strip Lab Result: " +
+          str(FileIO_example("Laboratory/Lab8/testing.data", "Laboratory/Lab8/clean.txt")))
 
     calculation("Laboratory/Lab8/calculation.txt")
