@@ -15,9 +15,9 @@ def zero_every_other(xlist):
 
 
 def zero_every_other_comp(xlist):
-    """
-    Rewrite zero_every_other using a list comprehension
-    """
+
+    # Rewrite zero_every_other using a list comprehension
+    return [(0 if i % 2 == 0 else xlist[i]) for i in range(len(xlist))]
     pass
 
 
@@ -25,6 +25,9 @@ def tempreture(temp_dict):
     """
     given a dictionary of Tempretures of the days at noon as an input. for those above 60 return hot for those less than or equal to 60 returns cold
     """
+    new_dict = {k: ('cold' if v <= 60 else 'hot')
+                for (k, v) in temp_dict.items()}
+    return new_dict
     pass
 
 
