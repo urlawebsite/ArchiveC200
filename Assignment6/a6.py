@@ -1,7 +1,7 @@
 import math
-import pygame
-import sys
-from pygame.locals import *
+# import pygame
+# import sys
+# from pygame.locals import *
 import random as rn
 
 # Name of your programmig partner
@@ -169,7 +169,7 @@ def mystic(xstr):
 
 def A(m, n):
     if m == 0:
-        return n+1
+        return (n+1)
     elif m > 0 and n == 0:
         return A(m-1, 1)
     elif m > 0 and n > 0:
@@ -181,18 +181,25 @@ def A(m, n):
 
 
 def ii(x, stop):
-    if stop == 5:
-        # return (-1)**stop * (x**(2*stop+1))/(math.factorial(2*stop+1))
-        # else:
-        return (-1)**stop * (x**(2*stop+1))/(math.factorial(2*stop+1)) + ii(x, stop+1)
-# Implement as per HW pdf instructions.
-# Will produce output equal to equation-32 but with loop.
+    def ii_c(stop):
+        a = 0
+        for i in range(stop+1):
+            a += (-1)**i * (x**(2*i+1)/math.factorial(2*i+1))
+        return a
+
+    return ii_c(stop)
+
+# Use equation #33 to solve
 
 
 def iii(stop):
     def closed(n):
         return (1/4)*(n**2)*(n+1)**2
-    pass
+    sum = 0
+    for n in range(1, stop+1):
+        sum += n**3
+
+    return [sum, closed(stop)]
 
 # Implement as per HW pdf instructions.
 # Will produce output equal to equation-33 but with loop.
@@ -201,7 +208,10 @@ def iii(stop):
 def iv(stop):
     def closed(n):
         return (1/2)*n*(6*(n**2)-(3*n)-1)
-    pass
+    sum = 0
+    for i in range(1, stop+1):
+        sum += (3*i-2)**2
+    return [sum, closed(stop)]
 
 # Implement as per HW pdf instructions.
 # Will produce output equal to equation-34 but with loop.
@@ -210,6 +220,10 @@ def iv(stop):
 def vi(x, stop):
     def closed(x, n):
         return math.sin(x*(2**n))/((2**n)*math.sin(x))
+    prod = 1
+    for i in range(1, stop+1):
+        prod *= (math.cos(2**(i-1)*x))
+    return round([prod, closed(x, stop)])
     pass
 
 # Problem 9
@@ -223,13 +237,15 @@ def I(t):
 
 
 def J(t):
-    pass
+    data[t]
+    data = [60.0, 59.00, 58.00, 55.26, 53.85, 52.8,
+            52.17, 51.55, 49.00, 46.26, 43.52, 50.76]
 
 # Implement the model as per the instructions in HW PDF.
 
 
 def K(t):
-    pass
+    return (50*t**2+600)/(t**2+10)
 
 # Input: a model
 # Output: List of months and quality index for those months (formatted as per the output in HW PDF)
@@ -374,9 +390,9 @@ if __name__ == "__main__":
     # 10F 271 271
 
     # problem 4
-    for i in range(14):
-        b2, b3, b4 = c_(i, 2), c_(i, 3), c_(i, 4)
-        print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
+    # for i in range(14):
+    #     b2, b3, b4 = c_(i, 2), c_(i, 3), c_(i, 4)
+    #     print(f"{int(b2,2)} {b2}, {int(b3,3)} {b3}, {int(b4,4)} {b4}")
 
     # # problem 5
     # lst = [1, 1, 1, 2, 2, 0]
@@ -399,12 +415,12 @@ if __name__ == "__main__":
     # print(A(4, 1))
 
     # problem 8
-    # x, stop = math.pi/4, 5
-    # print(ii(x, stop))
-    # print(math.sin(x))
-    # print(iii(5))
-    # print(iv(5))
-    # print(vi(math.pi,5))
+    x, stop = math.pi/4, 5
+    print(ii(x, stop))
+    print(math.sin(x))
+    print(iii(5))
+    print(iv(5))
+    print(vi(math.pi, 5))
 
     # problem 9
     # print("Model I:\n", env(I))
