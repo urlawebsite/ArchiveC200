@@ -5,7 +5,7 @@ import math
 import random as rn
 
 # Name of your programming partner
-# Name:
+# Name: Jacob Pascover
 
 # Problem 1
 # Recursive functions
@@ -29,7 +29,7 @@ def p(n):
 
 def b(n):
     if n <= 0:
-        return "error cannot anything below range"
+        return "error cannot do anything below range"
     elif n == 1:
         return 2
     elif n == 2:
@@ -40,7 +40,7 @@ def b(n):
 
 def c(n):
     if n <= 0:
-        return "error cannot anything below range"
+        return "error cannot do anything below range"
     elif n == 1:
         return 9
     else:
@@ -49,7 +49,7 @@ def c(n):
 
 def d(n):
     if n < 0:
-        return "error cannot anything below range"
+        return "error cannot do anything below range"
     elif n == 0:
         return 1
     else:
@@ -235,7 +235,7 @@ def vi(x, stop):
 
 
 def I(t):
-    return 5*t+t+400/2*t+2*t + 90
+    return (5*t**(2)+t+400)/((2*t**(2))+(2*t) + 90)
 
 # Implement the model as per the instructions in HW PDF.
 
@@ -243,9 +243,8 @@ def I(t):
 def J(t):
     data = [60.0, 59.00, 58.00, 55.26, 53.85, 52.8,
             52.17, 51.55, 49.00, 46.26, 43.52, 50.76]
-    return data[t]
-
-# Implement the model as per the instructions in HW PDF.
+    return data[t-1]
+    # Implement the model as per the instructions in HW PDF.
 
 
 def K(t):
@@ -429,16 +428,14 @@ if __name__ == "__main__":
     # print(A(4, 1))
 
     # problem 8
-    x, stop = math.pi/4, 5
-    print(ii(x, stop))
-    print(math.sin(x))
-    print(iii(5))
-    print(iv(5))
-    print(vi(math.pi, 5))
+    # x, stop = math.pi/4, 5
+    # print(ii(x, stop))
+    # print(math.sin(x))
+    # print(iii(5))
+    # print(iv(5))
+    # print(vi(math.pi, 5))
 
     # problem 9
     # print("Model I:\n", env(I))
-    # print("Model J:\n", env(J))
+    print("Model J:\n", env(J))
     # print("Model K:\n", env(K))
-
-    print(round(0.234, 2))
