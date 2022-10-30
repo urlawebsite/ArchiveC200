@@ -437,5 +437,5 @@ if __name__ == "__main__":
 
     # problem 9
     # print("Model I:\n", env(I))
-    print("Model J:\n", env(J))
+    # print("Model J:\n", env(J))
     # print("Model K:\n", env(K))
