@@ -1,10 +1,10 @@
 # Write the name of your programming partner below
-# partner name: _________________
+# partner name: Anthony Reyes
 
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib
-import os
+# import numpy as np
+# import matplotlib.pyplot as plt
+# import matplotlib
+# import os
 
 ###############
 # PROBLEM ONE
@@ -46,20 +46,24 @@ def B(n):
 def a(n):
     if n == 1:
         return 3
-    elif n == 2:
+    if n == 2:
         return 5
+    if n == 0:
+        return 2
     else:
-        if n <= 0:
-            return 2
-        else:
-            return a(n-1)+a(n-2)+a(n-3)
+        return a(n-1)+a(n-2)+a(n-3)
 
 # Input: a number n
 # Return: The output using while loop
 
 
 def aw(n):
-    pass
+    b = 0
+    nlst = []
+    while b != n+1:
+        b = b + 1
+        nlst.append(a(b-1))
+    return nlst[n]
 
 # Input: generator don't need to have any input. Instead, you can set the base case values and then
 # use 'yield' keyword inside a loop
@@ -67,28 +71,46 @@ def aw(n):
 
 
 def a_gen():
-    pass
+    for i in range(0, 10):
+        yield aw(i)
 
 # Input: a number n
 # Return: The output using tail recursion
 
 
 def at(n, v0=2, v1=3, v2=5):
-    pass
+    if n == 0:
+        return v0
+    if n == 1:
+        return v1
+    if n == 2:
+        return v2
+    else:
+        return at(n-1)+at(n-2)+at(n-3)
 
 # Input: a number x
 # Return: The output of bb() as per HW instructions
 
 
 def bb(x):
-    pass
+    if x == 0:
+        return 2
+    if x == 1:
+        return -3
+    else:
+        return bb(x-1)+bb(x-2)
 
 # Input: a number x
 # Return: The output using while loop
 
 
 def bbw(x):
-    pass
+    b = 0
+    nlst = [2]
+    while b != x:
+        b += 1
+        nlst.append(bb(b))
+    return nlst[-1]
 
 # Input: generator don't need to have any input. Instead, you can set the base case values and then
 # use 'yield' keyword inside a loop
@@ -96,35 +118,57 @@ def bbw(x):
 
 
 def bb_gen():
-    pass
+    for i in range(0, 10):
+        yield bb(i)
 
 # Input: a number n
 # Return: The output using tail recursion
 
 
 def bbt(x, v0=2, v1=-3):
-    pass
+    if x == 0:
+        return v0
+    if x == 1:
+        return v1
+    else:
+        return bbt(x-1)+bbt(x-2)
 
 # Input: numbers n, m ,p
 # Return: The output of F() as per HW instructions
 
 
 def F(n, m, p):
-    pass
+    if p == 0:
+        return 100+n-m
+    else:
+        return m*n-p+F(n-3, m-2, p-1)
 
 # Input: a number n, m ,p
 # Return: The output using tail recursion
 
 
 def Ft(n, m, p, v=100):
-    pass
+    if p == 0:
+        t = 100 + n-m
+        return t
+    else:
+        x = 100 + n-m
+        t = Ft(n-3, m-2, p-1, x-1)
+        return t-p+(m*n)
 
 # Input: a number n, m, p
 # Return: The output using while loop
 
 
 def Fw(n, m, p):
-    pass
+    b = p
+    if p == 0:
+        return 100+n-m
+    else:
+        while b != 0:
+            x = Fw(n-3, m-2, p-1)
+            b -= 1
+    return x-p+(m*n)
 
 
 def m(x, y):
@@ -142,7 +186,15 @@ def m(x, y):
 
 
 def mw(x, y):
-    pass
+    while True:
+        if x <= 0 and y <= 0:
+            return 3
+        elif x <= 0:
+            return 2
+        elif y <= 0:
+            return 1
+        else:
+            return m(x-1, y-1) + m(x-1, y-2)
 
 
 ###############
@@ -189,7 +241,21 @@ def error(data):
 
 
 def div_11(n):
-    pass
+    lst = [i for i in str(n)]
+    sumEven = 0
+    sumOdd = 0
+    for even in lst[::2]:
+        sumEven += int(even)
+    for odd in lst[1::2]:
+        sumOdd += int(odd)
+    if sumOdd-sumEven == 0:
+        return True
+    elif sumOdd-sumEven == 11:
+        return True
+    elif sumOdd-sumEven == -11:
+        return True
+    else:
+        return False
 
 
 ###############
@@ -198,52 +264,60 @@ def div_11(n):
 # INPUT list of numbers
 # RETURN list of nesting level and sum at that level
 def sl(lst, p=0):
-    pass
+    nlst = []
+    n1lst = []
+    for nums in lst:
+        if nums == int(nums):
+            print(nums)
+        if nums == list:
+            print("rat")
+            #         nlst.append(nums)
+            #     elif nums == list:
+            #         n1lst.append(nums)
+            # return nlst
+            # PROBLEM 6
+            # Uncomment the following code after finishing the population problem
+            # Please remember to comment it back before submitting to the Autograder
+            # We will mnaually run the code to see if the code correctly draws the trainagles.
+            # import pygame, sys
+            # import math
+            # from pygame.locals import *
+            # import random as rn
+            # pygame.init()
 
-# PROBLEM 6
-# Uncomment the following code after finishing the population problem
-# Please remember to comment it back before submitting to the Autograder
-# We will mnaually run the code to see if the code correctly draws the trainagles.
-# import pygame, sys
-# import math
-# from pygame.locals import *
-# import random as rn
-# pygame.init()
+            # BLUE = (0,0,255)
+            # WHITE = (255,255,255)
+            # BLACK = (0,0,0)
 
-# BLUE = (0,0,255)
-# WHITE = (255,255,255)
-# BLACK = (0,0,0)
+            # DISPLAYSURF = pygame.display.set_mode((500, 500), 0, 32)
 
-# DISPLAYSURF = pygame.display.set_mode((500, 500), 0, 32)
+            # pygame.display.set_caption('S-Triangle')
 
-# pygame.display.set_caption('S-Triangle')
+            # INPUT takes a location loc = (x,y) pair of points and width
+            # RETURN 3 points of the equilateral triangle determined by loc and width
+            # def triangle(loc,width):
+            #     x,y = loc
+            #     z = math.sqrt(width**2 - (width/2))
+            #     return (x,y),(x - width/2,y + z),(x + width/2, y + z)
 
-# INPUT takes a location loc = (x,y) pair of points and width
-# RETURN 3 points of the equilateral triangle determined by loc and width
-# def triangle(loc,width):
-#     x,y = loc
-#     z = math.sqrt(width**2 - (width/2))
-#     return (x,y),(x - width/2,y + z),(x + width/2, y + z)
+            # DISPLAYSURF.fill(BLACK)
 
-# DISPLAYSURF.fill(BLACK)
+            # Draws Triangle
+            # (triangle(loc,w)) is a tuple of tuples...)
+            # def draw_triangle(loc, w):
+            #     pygame.draw.polygon(DISPLAYSURF, (rn.randint(0,255),rn.randint(0,255),rn.randint(0,255)) , (triangle(loc,w)),1)
 
-# Draws Triangle
-# (triangle(loc,w)) is a tuple of tuples...)
-# def draw_triangle(loc, w):
-#     pygame.draw.polygon(DISPLAYSURF, (rn.randint(0,255),rn.randint(0,255),rn.randint(0,255)) , (triangle(loc,w)),1)
-
-
-# INPUT location and width
-# RETURN nothing -- follows algorithm
-# Draw the three smaller triangles as described
-# in the text
-# def s(loc,width):
-#     if width > 1:
-#         x,y = loc
-#         z = math.sqrt(width**2 - (width/2))
-#         draw_triangle(loc,width)
-#     else:
-#         return
+            # INPUT location and width
+            # RETURN nothing -- follows algorithm
+            # Draw the three smaller triangles as described
+            # in the text
+            # def s(loc,width):
+            #     if width > 1:
+            #         x,y = loc
+            #         z = math.sqrt(width**2 - (width/2))
+            #         draw_triangle(loc,width)
+            #     else:
+            #         return
 
 
 if __name__ == "__main__":
@@ -258,9 +332,9 @@ if __name__ == "__main__":
     #     print("B({0}) = {1}".format(i, B(i)))
 
     # PROBLEM 2
-    # for i,j in zip(range(10),a_gen()):
-    #     print(f"a({i}) {a(i)} {aw(i)} {at(i)} {j} \n",end="")
-    # for i,j in zip(range(10),bb_gen()):
+    # for i, j in zip(range(10), a_gen()):
+    #     print(f"a({i}) {a(i)} {aw(i)} {at(i)} {j} \n", end="")
+    # for i, j in zip(range(10), bb_gen()):
     #     print(f"b({i}) {bb(i)} {bbw(i)} {bbt(i)} {j}")
     # for i in range(6):
     #     for j in range(6):
@@ -271,38 +345,38 @@ if __name__ == "__main__":
     #         print(f"{i,j} {m(i,j)} {mw(i,j)} ")
 
     # Problem 3
-    data = get_data(".", "pop.txt")
-    print(f"data from file:", data)
-    print(f"abs(3040 - {pop(60)}) = {abs(3040 - pop(60))}")
-    ave_error = round(error(data), 2)
-    print(f"Average error: {ave_error}")
+    # data = get_data(".", "pop.txt")
+    # print(f"data from file:", data)
+    # print(f"abs(3040 - {pop(60)}) = {abs(3040 - pop(60))}")
+    # ave_error = round(error(data), 2)
+    # print(f"Average error: {ave_error}")
 
     # #uncomment to see plot
     # Please comment it back after you are done
     # completing the functions, otherwise the Autograder will
     # return with error.
 
-    t = np.arange(0.0, 120.0)
-    fig, ax = plt.subplots()
+    # t = np.arange(0.0, 120.0)
+    # fig, ax = plt.subplots()
 
-    ax.plot(t, pop(t), 'g')
-    for y, p in data:
-        ax.plot(y, p, 'ro--')
+    # ax.plot(t, pop(t), 'g')
+    # for y, p in data:
+    #     ax.plot(y, p, 'ro--')
 
-    ax.set(xlabel="Time (Year + 1900)", ylabel=r"Pop size $\times 10^6$",
-           title="Population Model Average Error = {0}".format(ave_error))
-    ax.grid()
-    plt.show()
+    # ax.set(xlabel="Time (Year + 1900)", ylabel=r"Pop size $\times 10^6$",
+    #        title="Population Model Average Error = {0}".format(ave_error))
+    # ax.grid()
+    # plt.show()
 
     # problem 4
     # nlst = [587657752,11,22,2728,31415,1358016]
     # for n in nlst:
     #     print(div_11(n), n / 11)
 
-    # problem 5
-    # prob5 = [[1,4,[3,[100]],3,2,[1,[101,1000],5],1,[7,9]],
-    #          [1,2,3,4,[10,20,30,40,[100,200,300,400]]],
-    #          [[[[100,200,300,400]]],[[10,20,30,40]],1,2,3,4]]
+    # # problem 5
+    # prob5 = [[1, 4, [3, [100]], 3, 2, [1, [101, 1000], 5], 1, [7, 9]],
+    #          [1, 2, 3, 4, [10, 20, 30, 40, [100, 200, 300, 400]]],
+    #          [[[[100, 200, 300, 400]]], [[10, 20, 30, 40]], 1, 2, 3, 4]]
     # for lst in prob5:
     #     print(sl(lst))
 
