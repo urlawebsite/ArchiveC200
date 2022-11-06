@@ -98,7 +98,7 @@ def bb(x):
     if x == 1:
         return -3
     else:
-        return bb(x-1)+bb(x-2)
+        return bb(x-1)*bb(x-2)
 
 # Input: a number x
 # Return: The output using while loop
@@ -106,11 +106,11 @@ def bb(x):
 
 def bbw(x):
     b = 0
-    nlst = [2]
+    t = [2]
     while b != x:
         b += 1
-        nlst.append(bb(b))
-    return nlst[-1]
+        t.append(bb(b))
+    return t[-1]
 
 # Input: generator don't need to have any input. Instead, you can set the base case values and then
 # use 'yield' keyword inside a loop
@@ -131,7 +131,7 @@ def bbt(x, v0=2, v1=-3):
     if x == 1:
         return v1
     else:
-        return bbt(x-1)+bbt(x-2)
+        return bbt(x-1)*bbt(x-2)
 
 # Input: numbers n, m ,p
 # Return: The output of F() as per HW instructions
@@ -265,65 +265,78 @@ def div_11(n):
 # RETURN list of nesting level and sum at that level
 def sl(lst, p=0):
     nlst = []
-    n1lst = []
-    for nums in lst:
-        if nums == int(nums):
-            print(nums)
-        if nums == list:
-            print("rat")
-            #         nlst.append(nums)
-            #     elif nums == list:
-            #         n1lst.append(nums)
-            # return nlst
-            # PROBLEM 6
-            # Uncomment the following code after finishing the population problem
-            # Please remember to comment it back before submitting to the Autograder
-            # We will mnaually run the code to see if the code correctly draws the trainagles.
-            # import pygame, sys
-            # import math
-            # from pygame.locals import *
-            # import random as rn
-            # pygame.init()
+    sum = 0
+    nlst1 = []
+    nlst2 = []
+    if len(lst) == 0:
+        return nlst2
+    for num in lst:
+        if type(num) == list:
+            continue
+        else:
+            nlst += [num]
+    for num in nlst:
+        lst.remove(num)
+        sum += num
+    for num in lst[0:]:
+        nlst1 += num
+    lst = nlst1
+    nlst2 += [[p, sum]]
+    return nlst2 + sl(lst, p+1)
 
-            # BLUE = (0,0,255)
-            # WHITE = (255,255,255)
-            # BLACK = (0,0,0)
+    #         nlst.append(nums)
+    #     elif nums == list:
+    #         n1lst.append(nums)
+    # return nlst
+    # PROBLEM 6
+    # Uncomment the following code after finishing the population problem
+    # Please remember to comment it back before submitting to the Autograder
+    # We will mnaually run the code to see if the code correctly draws the trainagles.
+    # import pygame, sys
+    # import math
+    # from pygame.locals import *
+    # import random as rn
+    # pygame.init()
 
-            # DISPLAYSURF = pygame.display.set_mode((500, 500), 0, 32)
+    # BLUE = (0,0,255)
+    # WHITE = (255,255,255)
+    # BLACK = (0,0,0)
 
-            # pygame.display.set_caption('S-Triangle')
+    # DISPLAYSURF = pygame.display.set_mode((500, 500), 0, 32)
 
-            # INPUT takes a location loc = (x,y) pair of points and width
-            # RETURN 3 points of the equilateral triangle determined by loc and width
-            # def triangle(loc,width):
-            #     x,y = loc
-            #     z = math.sqrt(width**2 - (width/2))
-            #     return (x,y),(x - width/2,y + z),(x + width/2, y + z)
+    # pygame.display.set_caption('S-Triangle')
 
-            # DISPLAYSURF.fill(BLACK)
+    # INPUT takes a location loc = (x,y) pair of points and width
+    # RETURN 3 points of the equilateral triangle determined by loc and width
+    # def triangle(loc,width):
+    #     x,y = loc
+    #     z = math.sqrt(width**2 - (width/2))
+    #     return (x,y),(x - width/2,y + z),(x + width/2, y + z)
 
-            # Draws Triangle
-            # (triangle(loc,w)) is a tuple of tuples...)
-            # def draw_triangle(loc, w):
-            #     pygame.draw.polygon(DISPLAYSURF, (rn.randint(0,255),rn.randint(0,255),rn.randint(0,255)) , (triangle(loc,w)),1)
+    # DISPLAYSURF.fill(BLACK)
 
-            # INPUT location and width
-            # RETURN nothing -- follows algorithm
-            # Draw the three smaller triangles as described
-            # in the text
-            # def s(loc,width):
-            #     if width > 1:
-            #         x,y = loc
-            #         z = math.sqrt(width**2 - (width/2))
-            #         draw_triangle(loc,width)
-            #     else:
-            #         return
+    # Draws Triangle
+    # (triangle(loc,w)) is a tuple of tuples...)
+    # def draw_triangle(loc, w):
+    #     pygame.draw.polygon(DISPLAYSURF, (rn.randint(0,255),rn.randint(0,255),rn.randint(0,255)) , (triangle(loc,w)),1)
+
+    # INPUT location and width
+    # RETURN nothing -- follows algorithm
+    # Draw the three smaller triangles as described
+    # in the text
+    # def s(loc,width):
+    #     if width > 1:
+    #         x,y = loc
+    #         z = math.sqrt(width**2 - (width/2))
+    #         draw_triangle(loc,width)
+    #     else:
+    #         return
 
 
 if __name__ == "__main__":
     """
-    The code in "__main__" is not being graded, but a tool for you to test 
-    your code outside of the `test_a7.py`. Feel free to add print statements. 
+    The code in "__main__" is not being graded, but a tool for you to test
+    your code outside of the `test_a7.py`. Feel free to add print statements.
     # """
 
     # PROBLEM 1
