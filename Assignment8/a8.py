@@ -1,8 +1,3 @@
-from time import perf_counter, time
-import random as rn
-import math
-
-
 # The dictionary for the transation (this dictionary will store the DAN-amino acids mapping)
 aa_d = {}
 
@@ -35,22 +30,6 @@ def get_DNA(name):
 def translate(DNA_d):
     pass
 
-
-#PROBLEM 2
-def time_it(f,n):
-    start = perf_counter()
-    f(n)
-    return (perf_counter() - start)
-
-
-#Traditional quick sort
-def qs(lst):
-    pass
-
-#INPUT lst numbers, percent to calculate pivot mean
-#RETURN sorted list--also uses qs if data size < 50
-def qso(lst,percent):
-    pass
 
     
 # ! Important !
@@ -91,10 +70,3 @@ if __name__ == "__main__":
 
     # #should returns "D-"
     # print(translate(["nothing", "GACTAA"]))
-
-    # #PROBLEM 2
-    # lst = [rn.randint(0,100000) for _ in range(1000000)]
-    # print("Data size 1000000")
-    # print(f" qs      {time_it(qs,lst):.2} sec")
-    # for percent in [1,5,10,20]:
-    #     print(f" qso {percent:<2}% {time_it(qs,lst):.2} sec")
