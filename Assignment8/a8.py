@@ -103,24 +103,24 @@ def translate(DNA_d):
 
 if __name__ == "__main__":
     '''for your use'''
-    fn1, fn2 = "amino_acids.txt", "DNA.txt"
-    aa_d = get_amino_acids(fn1)
-    # DNA_d = get_DNA(fn2)
-    # # protein = translate(DNA_d)
+    # fn1, fn2 = "amino_acids.txt", "DNA.txt"
+    # aa_d = get_amino_acids(fn1)
+    # # DNA_d = get_DNA(fn2)
+    # # # protein = translate(DNA_d)
 
-    # # print("Dictionary")
-    print(aa_d)
-    # print("FASTA file")
-    # print(DNA_d)
-    # # print(protein)
-    # print("Translations match:", str(protein == actual))
+    # # # print("Dictionary")
+    # print(aa_d)
+    # # print("FASTA file")
+    # # print(DNA_d)
+    # # # print(protein)
+    # # print("Translations match:", str(protein == actual))
 
-    # # #should return "PLHS"
-    # print(translate(["nothing", "CCACTGCACTCA"]))
+    # # # #should return "PLHS"
+    # # print(translate(["nothing", "CCACTGCACTCA"]))
 
-    # # #should returns "D-"
-    print(translate(["nothing", "GACTAA"]))
-    print(translate(["nothing", "GGAAGGCGC"]))
-    print(translate(["noting", "CCACTGCA"]))
-    print(translate(["noting", "GCGGGGTC"]))
-    print(translate(["noting", "GGTGCGGGGGG"]))
+    # # # #should returns "D-"
+    # print(translate(["nothing", "GACTAA"]))
+    # print(translate(["nothing", "GGAAGGCGC"]))
+    # print(translate(["noting", "CCACTGCA"]))
+    # print(translate(["noting", "GCGGGGTC"]))
+    # print(translate(["noting", "GGTGCGGGGGG"]))
