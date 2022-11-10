@@ -15,7 +15,7 @@ Glutamine, Q, CAA, CAG
 Asparagine, N, AAT, AAC
 Histidine, H, CAT, CAC
 Glutamic_acid, E, GAA, GAG
-AsparTic acid, D, GAT, GAC
+AsparTic_acid, D, GAT, GAC
 Lysine, K, AAA, AAG
 Arginine, R, CGT, CGC, CGA, CGG, AGA, AGG
 Stop_codons, -, TAA, TAG, TGA

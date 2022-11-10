@@ -20,9 +20,8 @@ def get_amino_acids(name):
         lines = contents.splitlines()
         for i in lines:
             a = i.split(",")
-            x = a[0]
-            y = a[1]
-            aa_d[x, y] = a[2:]
+            x = tuple(a[2:])
+            aa_d[x] = a[0], a[1]
         return aa_d
 
 
@@ -66,19 +65,24 @@ def translate(DNA_d):
     lst = DNA_d
     group = []
     nlst = []
-    a = ""
+    nlst2 = []
+    b = ""
+
     for i in range(1, len(lst)):
         for j in range(0, len(lst[i]), 3):
             group.append(lst[i][j:j+3])
     for cod in group:
         for k, v in aa_d.items():
-            for values in v:
-                if cod in values:
-                    nlst.append(k[1])
+            for values in k:
+                if cod in ["AA", "CC", "GG", "TT", "CA", "CG", "CT", "GA", "GC", "GT", "TA", "TC", "TG", "AC", "AG", "AT", "A", "G", "C", "T"]:
+                    nlst2.append(cod)
+                else:
+                    if cod in values:
+                        nlst.append(v[1])
 
     for letter in nlst:
-        a += letter[1]
-    return a
+        b += letter
+    return b
 
     # ! Important !
 
@@ -101,19 +105,22 @@ if __name__ == "__main__":
     '''for your use'''
     fn1, fn2 = "amino_acids.txt", "DNA.txt"
     aa_d = get_amino_acids(fn1)
-    DNA_d = get_DNA(fn2)
-    protein = translate(DNA_d)
+    # DNA_d = get_DNA(fn2)
+    # # protein = translate(DNA_d)
 
-    print("Dictionary")
+    # # print("Dictionary")
     print(aa_d)
-    print("FASTA file")
-    print(DNA_d)
-    # print(protein)
-    print("Translations match:", str(protein == actual))
+    # print("FASTA file")
+    # print(DNA_d)
+    # # print(protein)
+    # print("Translations match:", str(protein == actual))
 
-    # #should return "PLHS"
-    print(translate(["nothing", "CCACTGCACTCA"]))
+    # # #should return "PLHS"
+    # print(translate(["nothing", "CCACTGCACTCA"]))
 
-    # #should returns "D-"
+    # # #should returns "D-"
     print(translate(["nothing", "GACTAA"]))
-    # print(translate(["nothing", "GGAAGGCGC"]))
+    print(translate(["nothing", "GGAAGGCGC"]))
+    print(translate(["noting", "CCACTGCA"]))
+    print(translate(["noting", "GCGGGGTC"]))
+    print(translate(["noting", "GGTGCGGGGGG"]))
