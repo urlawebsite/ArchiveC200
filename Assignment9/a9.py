@@ -11,7 +11,7 @@ def D(f):
 
 
 def newton(f, x, tau):
-    while abs(f(x)) > tau:
+    while f(x) > tau:
         x = x - f(x)/D(f)(x)
     return x
 
