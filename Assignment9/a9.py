@@ -129,14 +129,14 @@ class fraction:
 if __name__ == "__main__":
     ''' uncomment if needed'''
 #   Problem 1
-p1 = [[lambda x:x**2 - 2, 100], [lambda x:x**6-x-1, 1.5],
-      [lambda x:x**3-(100*(x**2))-x + 100, 0]]
-tau = 0.0001
+# p1 = [[lambda x:x**2 - 2, 100], [lambda x:x**6-x-1, 1.5],
+#       [lambda x:x**3-(100*(x**2))-x + 100, 0]]
+# tau = 0.0001
 
-for f, g in p1:
-    root = newton(f, g, tau)
-    print(root, f(root))
-print(newton(36, 200, 0.0001))
+# for f, g in p1:
+#     root = newton(f, g, tau)
+#     print(root, f(root))
+# print(newton(36, 200, 0.0001))
 
 
 #    Problem 2
