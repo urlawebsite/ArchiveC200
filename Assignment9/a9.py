@@ -136,7 +136,6 @@ if __name__ == "__main__":
 # for f, g in p1:
 #     root = newton(f, g, tau)
 #     print(root, f(root))
-# print(newton(36, 200, 0.0001))
 
 
 #    Problem 2
