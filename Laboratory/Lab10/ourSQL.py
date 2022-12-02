@@ -26,7 +26,7 @@ table1_name = "Animal"
 table1_column = "ID INT, Name TEXT, Type TEXT, Age INT"
 
 Table1_data = [
-    '11, "Hello", "Cat", 1', 
+    '11, "Hello", "Cat", 1',
     '12, "Barkley", "Dog", 12',
     '13, "Lizzy", "Lizard", 5',
     '14, "Sir Ham", "Hamster", 7',
@@ -66,7 +66,6 @@ Table3_data = [
 ]
 
 
-
 def createDatabase(path):
     """
     Given the path for the database, create the database and 
@@ -94,7 +93,6 @@ def insertValues(cursor, tableName, valueString):
     # TODO
 
 
-
 def queryStatement(theSelect, theFrom, theWhere=""):
     """
     Given a query to run on the database, return the results.
@@ -104,55 +102,51 @@ def queryStatement(theSelect, theFrom, theWhere=""):
     # TODO
 
 
-
 if __name__ == "__main__":
     path = "Laboratory/Lab11/ourDB.db"
-    ### Creating the Database
+    # Creating the Database
     db_connection, theCursor = createDatabase(path)
 
-    ### Creating the Tables
+    # Creating the Tables
     createTable(theCursor, table1_name, table1_column)
     createTable(theCursor, table2_name, table2_column)
     createTable(theCursor, table3_name, table3_column)
 
     # TODO: Add something here to "cement" the change
 
-
-    ### Inserting the values
-    #### Table 1
+    # Inserting the values
+    # Table 1
     for values in Table1_data:
         insertValues(theCursor, table1_name, values)
 
     # TODO: Add something here to "cement" the change
-    
 
-    #### Table 2
+    # Table 2
     for values in Table2_data:
         insertValues(theCursor, table2_name, values)
 
     # TODO: Add something here to "cement" the change
 
-    #### Table 3 
+    # Table 3
     for values in Table3_data:
         insertValues(theCursor, table3_name, values)
 
     # TODO: Add something here to "cement" the change
 
-    ### Random Query Statements
-    
+    # Random Query Statements
 
     print("Query 1")
     print("~"*40)
     # TODO, we need to get a query that:
-    # - gets the owner name, the animal name 
+    # - gets the owner name, the animal name
     # - from the corresponding tables
     # - if the animal is a "Cat"
     # - And the animal belongs to the owner
 
-    query = queryStatement("", "", "") # TODO: Fill this in
+    query = queryStatement("", "", "")  # TODO: Fill this in
     for x in theCursor.execute(query):
         print(x)
-    
+
     print("\n"*3)
 
     ################################################################
@@ -165,12 +159,11 @@ if __name__ == "__main__":
     # - under the condition that the animal is <= 3
     # - and the animal belongs to that owner
 
-    query = queryStatement("", "", "") # TODO: Fill this in
+    query = queryStatement("", "", "")  # TODO: Fill this in
     for x in theCursor.execute(query):
         print(x)
-    
-    print("\n"*3)
 
+    print("\n"*3)
 
     ################################################################
     print("Query 3")
@@ -182,8 +175,8 @@ if __name__ == "__main__":
     # - under the condition that the vet hosts at least two clients
     # - and these clients are distinct
 
-    query = queryStatement("", "", "") # TODO: Fill this in
+    query = queryStatement("", "", "")  # TODO: Fill this in
     for x in theCursor.execute(query):
         print(x)
-    
+
     print("\n"*3)
