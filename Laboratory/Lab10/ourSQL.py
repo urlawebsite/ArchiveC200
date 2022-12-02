@@ -71,7 +71,8 @@ def createDatabase(path):
     Given the path for the database, create the database and 
     pass back the connection to the database and cursor to the database. 
     """
-    # TODO
+    connection = sqlite3.connect(path)
+    return connection, connection.cursor()
 
 
 def createTable(cursor, tableName, columns):
@@ -83,14 +84,18 @@ def createTable(cursor, tableName, columns):
     columns example:
     str = "c1 TEXT, c2 INT, c3 INT"
     """
-    # TODO
+    theQuery = "DROP TABLE IF EXISTS {}".format(tableName)
+    cursor.execute(theQuery)
+    theQuery = "CREATE TABLE {} ({})" .format(tableName, columns)
+    cursor.execute(theQuery)
 
 
 def insertValues(cursor, tableName, valueString):
     """
     Given the database cursor, the table name, and the values to add
     """
-    # TODO
+    theQuery = "INSERT INTO {} VALUES ({})".format(tableName, valueString)
+    cursor.execute(theQuery)
 
 
 def queryStatement(theSelect, theFrom, theWhere=""):
@@ -99,11 +104,14 @@ def queryStatement(theSelect, theFrom, theWhere=""):
 
     You are potentially given queries that do not have a where statement
     """
-    # TODO
+    theQuery = "SELECT {} FROM {}" .format(theSelect, theFrom)
+    if theWhere != "":
+        theQuery += " WHERE {}".format(theWhere)
+    return theQuery
 
 
 if __name__ == "__main__":
-    path = "Laboratory/Lab11/ourDB.db"
+    path = "Laboratory/Lab10/ourDB.db"
     # Creating the Database
     db_connection, theCursor = createDatabase(path)
 
@@ -113,6 +121,7 @@ if __name__ == "__main__":
     createTable(theCursor, table3_name, table3_column)
 
     # TODO: Add something here to "cement" the change
+    db_connection.commit()
 
     # Inserting the values
     # Table 1
@@ -120,18 +129,21 @@ if __name__ == "__main__":
         insertValues(theCursor, table1_name, values)
 
     # TODO: Add something here to "cement" the change
+    db_connection.commit()
 
     # Table 2
     for values in Table2_data:
         insertValues(theCursor, table2_name, values)
 
     # TODO: Add something here to "cement" the change
+    db_connection.commit()
 
     # Table 3
     for values in Table3_data:
         insertValues(theCursor, table3_name, values)
 
     # TODO: Add something here to "cement" the change
+    db_connection.commit()
 
     # Random Query Statements
 
@@ -143,7 +155,8 @@ if __name__ == "__main__":
     # - if the animal is a "Cat"
     # - And the animal belongs to the owner
 
-    query = queryStatement("", "", "")  # TODO: Fill this in
+    query = queryStatement("Owner.Name, Animal.Name", "Owner,Animal",
+                           "Owner.AnimalID == AnimalID and Owner.Name == ID")  # TODO: Fill this in
     for x in theCursor.execute(query):
         print(x)
 
@@ -159,7 +172,8 @@ if __name__ == "__main__":
     # - under the condition that the animal is <= 3
     # - and the animal belongs to that owner
 
-    query = queryStatement("", "", "")  # TODO: Fill this in
+    query = queryStatement("Owner.Name, Animal.Name", "Owner, Animal",
+                           "Owner.Animal.ID == Animal.ID and Animal.Age <= 3")  # TODO: Fill this in
     for x in theCursor.execute(query):
         print(x)
 
@@ -175,7 +189,8 @@ if __name__ == "__main__":
     # - under the condition that the vet hosts at least two clients
     # - and these clients are distinct
 
-    query = queryStatement("", "", "")  # TODO: Fill this in
+    query = queryStatement("Count(distinct Vet.VetID", "Vet, Owner o1, Owner o2 ",
+                           "Vet.VetID==o1.VetID and Vet.VetID == o2.VetID and o1.NAme != o2.Name")  # TODO: Fill this in
     for x in theCursor.execute(query):
         print(x)
 
