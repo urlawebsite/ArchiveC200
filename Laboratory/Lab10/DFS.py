@@ -7,6 +7,16 @@ def dfs(g, start):
     given a graph and a start point node as an input
     return list of visited nodes DFS
     """
+    visited = []
+    stack = Stack()
+    stack.push(start)
+    while not stack.isEmpty():
+        node = stack.pop()
+        if node not in visited:
+            visited.append(node)
+            for child in g.children(node):
+                stack.push(child)
+    return visited
 
 
 if __name__ == "__main__":
