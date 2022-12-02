@@ -51,6 +51,7 @@ Table2_data = [
     "'Nyssa Roantree',  17, '262-487-0447', 2",
     "'Peggy MacLaren',  18, '275-819-3445', 4",
     "'Tani Millam',     19, '460-980-7084', 5"
+
 ]
 
 table3_name = "Vet"
