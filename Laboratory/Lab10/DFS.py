@@ -15,7 +15,8 @@ def dfs(g, start):
         if node not in visited:
             visited.append(node)
             for child in g.children(node):
-                stack.push(child)
+                if child not in visited:
+                    stack.push(child)
     return visited
 
 
