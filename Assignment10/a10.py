@@ -21,27 +21,19 @@ import os
 
 def step(i, x, y):
     direction = rn.randint(1, 4)
-
-    # Take the step based on the randomly selected direction
-    # TODO: implement this functions
-    if i == 0:
-        x[0] = 0
-        y[0] = 0
+    if direction == 1:
+        x[i] = x[i-1] + 1
+        y[i] = y[i-1]
+    elif direction == 2:
+        x[i] = x[i-1] - 1
+        y[i] = y[i-1]
+    elif direction == 3:
+        x[i] = x[i-1]
+        y[i] = y[i-1] + 1
     else:
-        if direction == 1:
-            x[i] = x[i-1]+1
-            y[i] = y[i-1]
-        elif direction == 2:
-            x[i] = x[i-1]-1
-            y[i] = y[i-1]
-        elif direction == 3:
-            x[i] = x[i-1]
-            y[i] = y[i-1]+1
-        elif direction == 4:
-            x[i] = x[i-1]
-            y[i] = y[i-1]-1
-
-    pass
+        x[i] = x[i-1]
+        y[i] = y[i-1] - 1
+    return None
 
 
 # Do Not Modify this function. It creates the plot to show
@@ -51,6 +43,7 @@ def step(i, x, y):
 # Make sure that after you are done testing, you comment the call to this function
 # under the __name__ == "__main__". If you call this function and submit to the Autograder, it
 # may return unexpected errors because Autograder does not support graphical plots yet.
+
 
 def graphit(x, y, n):
 
@@ -115,8 +108,8 @@ class Vector:
 # if you want to fix where the db is
 # os.chdir("c:path+filename")
 
-# connection = sqlite3.connect("mydatabase.db")
-# my_cursor = connection.cursor()
+connection = sqlite3.connect("mydatabase.db")
+my_cursor = connection.cursor()
 
 #############################################
 # RUN THE FOLLOWING ONLY ONCE
@@ -125,15 +118,21 @@ class Vector:
 # and comment the code back.
 
 # First create the table
-# my_cursor.execute("")
+# my_cursor.execute(
+#     "CREATE TABLE Weather (City text, State text, High integer, Low integer)")
 
-# Insert values into the table
-# my_cursor.execute("")
-# my_cursor.execute("")
-# my_cursor.execute("")
-# my_cursor.execute("")
-# my_cursor.execute("")
-# my_cursor.execute("")
+# # # Insert values into the table
+my_cursor.execute(
+    "INSERT INTO WEATHER VALUES('Phoenix', 'Arizona', 105, 90)")
+my_cursor.execute(
+    "INSERT INTO WEATHER VALUES('Tucson', 'Arizona', 101, 92)")
+my_cursor.execute(
+    "INSERT INTO WEATHER VALUES('Flag Staff', 'Arizona', 105, 90)")
+my_cursor.execute(
+    "INSERT INTO WEATHER VALUES('San Diego', 'California', 77, 60)")
+my_cursor.execute(
+    "INSERT INTO WEATHER VALUES('Albuquerque', 'New Mexico', 80, 72)")
+my_cursor.execute("INSERT INTO WEATHER VALUES('Nome', 'Alaska', 64, -54)")
 
 #############################################
 
@@ -149,8 +148,8 @@ if __name__ == "__main__":
     # x = np.zeros(n)
     # y = np.zeros(n)
 
-    # fill array with step values
-    # for i in range(0, n):
+    # # fill array with step values
+    # for i in range(1, n):
     #     step(x, y, i)
 
     # # The following line will call graphit() function which will
@@ -172,57 +171,62 @@ if __name__ == "__main__":
     # print(x - y + y == x, 2 * z == z + z)
 
     # # PROBLEM 3
-    # data = [('Phoenix', 'Arizona', 105, 90),('Tucson', 'Arizona', 101, 92),
-    #         ('Flag Staff', 'Arizona', 105, 90), ('San Diego', 'California', 77, 60),
-    #         ('Alguquerque', 'New Mexico', 80, 72), ('Nome', 'Alaska', 64 ,-54)]
+    data = [('Phoenix', 'Arizona', 105, 90), ('Tucson', 'Arizona', 101, 92),
+            ('Flag Staff', 'Arizona', 105, 90), ('San Diego', 'California', 77, 60),
+            ('Alguquerque', 'New Mexico', 80, 72), ('Nome', 'Alaska', 64, -54)]
 
     # # QUERY 1 Select all records from the database
     # print("Query 1")
-    # for i in my_cursor.execute("SELECT * FROM Weather"):
+    # for i in my_cursor.execute("SELECT * FROM WEATHER"):
     #     print(i)
     # print("List Comprehension: ", data)
 
     # # QUERY 2
     # # Select all the records from the database where the high temperature is less than 80
     # print("\nQuery 2")
-    # for i in my_cursor.execute(""):
+    # for i in my_cursor.execute("SELECT * FROM Weather WHERE High < 80"):
     #     print(i)
-    # print("List Comprehension: ", [d for d in data if d[2] < 80 ])
+    # print("List Comprehension: ", [d for d in data if d[2] < 80])
 
     # # QUERY 3
     # # Select All the cities where the low temperature is greater than the low of Albuquerque
     # print("\nQuery 3")
-    # for i in my_cursor.execute(""):
+    # for i in my_cursor.execute("SELECT City FROM Weather WHERE Low > 50"):
     #     print(i)
-    # print("List Comprehension: ",[d[0] for d in data if d[3] > [d[3] for d in data if d[0] == 'Alguquerque'][0]])
+    # print("List Comprehension: ", [d[0] for d in data if d[3] > [
+    #       d[3] for d in data if d[0] == 'Alguquerque'][0]])
 
     # # QUERY 4
     # # Select the city and temperature with the smallest low temperature
     # print("\nQuery 4")
-    # for i in my_cursor.execute(""):
+    # for i in my_cursor.execute("SELECT City, Low FROM Weather WHERE Low = (SELECT MIN(Low) FROM Weather)"):
     #     print(i)
-    # print("List Comprehension: ",[(d[0],d[3]) for d in data if d[3] in (sorted(data, key = lambda x:x[3])[0])])
+    # print("List Comprehension: ", [(d[0], d[3]) for d in data if d[3] in (
+    #     sorted(data, key=lambda x:x[3])[0])])
 
     # # QUERY 5
     # # Select the city temperature with the largest high temperature
     # print("\nQuery 5")
-    # for i in my_cursor.execute(""):
+    # for i in my_cursor.execute("SELECT City, High FROM Weather WHERE High = (SELECT MAX(High) FROM Weather)"):
     #     print(i)
-    # print("List Comprehension: ",[(d[0],d[2]) for d in data if d[2] in (sorted(data, key = lambda x:x[2],reverse=True)[0])])
+    # print("List Comprehension: ", [(d[0], d[2]) for d in data if d[2] in (
+    #     sorted(data, key=lambda x:x[2], reverse=True)[0])])
 
     # # QUERY 6
     # # Display the average High and Low temperatures
     # # You are not allowed to use Avg()
-    # print("\nQuery 6")
-    # for i in my_cursor.execute(""):
-    #     print(i)
-    # print("List Comprehension: ", [(sum([d[2] for d in data])/len(data),sum([d[3] for d in data])/len(data))])
+    print("\nQuery 6")
+    for i in my_cursor.execute("SELECT (SUM(High))/(COUNT(High)), (SUM(LOW)/COUNT(LOW)) FROM Weather"):
+        print(i)
+    print("List Comprehension: ", [
+          (sum([d[2] for d in data])/len(data), sum([d[3] for d in data])/len(data))])
 
     # # QUERY 7
     # # Give the counts of cities by their Low temperatures
     # print("\nQuery 7")
-    # for i in my_cursor.execute(""):
+    # for i in my_cursor.execute("SELECT Low, COUNT(*) FROM Weather GROUP BY Low"):
     #     print(i)
-    # print("List Comprehension: ", [(i,list(map((lambda x: x[3]),data)).count(i)) for i in set(map((lambda x: x[3]),data))])
+    # print("List Comprehension: ", [(i, list(map((lambda x: x[3]), data)).count(
+    #     i)) for i in set(map((lambda x: x[3]), data))])
 
     # connection.close()
