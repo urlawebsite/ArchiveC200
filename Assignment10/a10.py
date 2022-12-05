@@ -24,16 +24,15 @@ def step(i, x, y):
     if direction == 1:
         x[i] = x[i-1] + 1
         y[i] = y[i-1]
-    elif direction == 2:
+    if direction == 2:
         x[i] = x[i-1] - 1
         y[i] = y[i-1]
-    elif direction == 3:
+    if direction == 3:
         x[i] = x[i-1]
         y[i] = y[i-1] + 1
-    else:
+    if direction == 4:
         x[i] = x[i-1]
         y[i] = y[i-1] - 1
-    return None
 
 
 # Do Not Modify this function. It creates the plot to show
@@ -108,8 +107,8 @@ class Vector:
 # if you want to fix where the db is
 # os.chdir("c:path+filename")
 
-connection = sqlite3.connect("mydatabase.db")
-my_cursor = connection.cursor()
+# connection = sqlite3.connect("mydatabase.db")
+# my_cursor = connection.cursor()
 
 #############################################
 # RUN THE FOLLOWING ONLY ONCE
@@ -122,17 +121,17 @@ my_cursor = connection.cursor()
 #     "CREATE TABLE Weather (City text, State text, High integer, Low integer)")
 
 # # # Insert values into the table
-my_cursor.execute(
-    "INSERT INTO WEATHER VALUES('Phoenix', 'Arizona', 105, 90)")
-my_cursor.execute(
-    "INSERT INTO WEATHER VALUES('Tucson', 'Arizona', 101, 92)")
-my_cursor.execute(
-    "INSERT INTO WEATHER VALUES('Flag Staff', 'Arizona', 105, 90)")
-my_cursor.execute(
-    "INSERT INTO WEATHER VALUES('San Diego', 'California', 77, 60)")
-my_cursor.execute(
-    "INSERT INTO WEATHER VALUES('Albuquerque', 'New Mexico', 80, 72)")
-my_cursor.execute("INSERT INTO WEATHER VALUES('Nome', 'Alaska', 64, -54)")
+# my_cursor.execute(
+#     "INSERT INTO WEATHER VALUES('Phoenix', 'Arizona', 105, 90)")
+# my_cursor.execute(
+#     "INSERT INTO WEATHER VALUES('Tucson', 'Arizona', 101, 92)")
+# my_cursor.execute(
+#     "INSERT INTO WEATHER VALUES('Flag Staff', 'Arizona', 105, 90)")
+# my_cursor.execute(
+#     "INSERT INTO WEATHER VALUES('San Diego', 'California', 77, 60)")
+# my_cursor.execute(
+#     "INSERT INTO WEATHER VALUES('Albuquerque', 'New Mexico', 80, 72)")
+# my_cursor.execute("INSERT INTO WEATHER VALUES('Nome', 'Alaska', 64, -54)")
 
 #############################################
 
@@ -144,18 +143,18 @@ if __name__ == "__main__":
     # # number of steps (n)
     # # You should change the number of steps to see
     # # to see how it affects the plot
-    # n = 100000
+    # n = 10000
     # x = np.zeros(n)
     # y = np.zeros(n)
 
-    # # fill array with step values
+    # # # fill array with step values
     # for i in range(1, n):
-    #     step(x, y, i)
+    #     step(i, x, y)
 
-    # # The following line will call graphit() function which will
-    # # create a graphical plot for you.
-    # # Before submitting to the Autograder-make sure that you comment this line,
-    # # because the Autograder can't create graphical output yet.
+    # # # The following line will call graphit() function which will
+    # # # create a graphical plot for you.
+    # # # Before submitting to the Autograder-make sure that you comment this line,
+    # # # because the Autograder can't create graphical output yet.
 
     # graphit(x, y, n)
 
@@ -170,10 +169,10 @@ if __name__ == "__main__":
     # print(-x, -z)
     # print(x - y + y == x, 2 * z == z + z)
 
-    # # PROBLEM 3
-    data = [('Phoenix', 'Arizona', 105, 90), ('Tucson', 'Arizona', 101, 92),
-            ('Flag Staff', 'Arizona', 105, 90), ('San Diego', 'California', 77, 60),
-            ('Alguquerque', 'New Mexico', 80, 72), ('Nome', 'Alaska', 64, -54)]
+    # # # PROBLEM 3
+    # data = [('Phoenix', 'Arizona', 105, 90), ('Tucson', 'Arizona', 101, 92),
+    #         ('Flag Staff', 'Arizona', 105, 90), ('San Diego', 'California', 77, 60),
+    #         ('Albuquerque', 'New Mexico', 80, 72), ('Nome', 'Alaska', 64, -54)]
 
     # # QUERY 1 Select all records from the database
     # print("Query 1")
@@ -191,10 +190,10 @@ if __name__ == "__main__":
     # # QUERY 3
     # # Select All the cities where the low temperature is greater than the low of Albuquerque
     # print("\nQuery 3")
-    # for i in my_cursor.execute("SELECT City FROM Weather WHERE Low > 50"):
+    # for i in my_cursor.execute("SELECT City FROM Weather WHERE Low > (SELECT Low FROM Weather WHERE City = 'Albuquerque')"):
     #     print(i)
     # print("List Comprehension: ", [d[0] for d in data if d[3] > [
-    #       d[3] for d in data if d[0] == 'Alguquerque'][0]])
+    #       d[3] for d in data if d[0] == 'Albuquerque'][0]])
 
     # # QUERY 4
     # # Select the city and temperature with the smallest low temperature
@@ -215,11 +214,11 @@ if __name__ == "__main__":
     # # QUERY 6
     # # Display the average High and Low temperatures
     # # You are not allowed to use Avg()
-    print("\nQuery 6")
-    for i in my_cursor.execute("SELECT (SUM(High))/(COUNT(High)), (SUM(LOW)/COUNT(LOW)) FROM Weather"):
-        print(i)
-    print("List Comprehension: ", [
-          (sum([d[2] for d in data])/len(data), sum([d[3] for d in data])/len(data))])
+    # print("\nQuery 6")
+    # for i in my_cursor.execute("SELECT (SUM(High)*1.00)/(COUNT(High)*1.00),(SUM(Low)*1.00)/(COUNT(Low)*1.00)  FROM WEATHER"):
+    #     print(i)
+    # print("List Comprehension: ", [
+    #       (sum([d[2] for d in data])/len(data), sum([d[3] for d in data])/len(data))])
 
     # # QUERY 7
     # # Give the counts of cities by their Low temperatures
