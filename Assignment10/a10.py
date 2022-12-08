@@ -3,8 +3,8 @@
 # for testing while you work on the HW, but comment these lines and the entire code for graphit() function
 # before submitting to the Autograder.
 
-import numpy as np
-import matplotlib.pyplot as plt
+# import numpy as np
+# import matplotlib.pyplot as plt
 import random as rn
 import math
 import sqlite3
@@ -95,7 +95,7 @@ class Vector:
         return round(math.sqrt(self.ans), 3)
 
     def __neg__(self):
-        return Vector(*(-i for i in self.__v))
+        return self * -1
 
     def __eq__(self, other):
         return self.__v == other.get_tuple()
