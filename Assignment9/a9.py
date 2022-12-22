@@ -17,6 +17,7 @@ def newton(f, x, tau):
 
 # Problem 2
 # INPUT a number
+
 # RETURN -1 if number is <= 0, 1 otherwise
 
 

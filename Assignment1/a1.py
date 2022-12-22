@@ -6,6 +6,7 @@ def c(r, h):
     v = 1/3*math.pi*r**2*h
     return v
 
+
 # input t days
 # output oxygen conten percent of it normal level
 

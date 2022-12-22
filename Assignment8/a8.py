@@ -27,6 +27,7 @@ def get_amino_acids(name):
 
 # INPUT file name of the DNA file (make sure that you keep the DNA.txt under Assignment8 folder)
 # RETURN a list [header, DNA]
+
 # header is first line in the file
 # DNA is a string of letters from remainder of file
 # no whitespace

@@ -6,7 +6,6 @@
 
 # Your functions goes here
 import math
-
 # Problem 1
 
 

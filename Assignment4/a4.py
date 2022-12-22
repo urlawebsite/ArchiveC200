@@ -35,6 +35,7 @@ def inner_prod(v0, v1):
         total += num
     return total
 
+
 # INPUT a list of 0s, 1s
 # RETURN square root of inner product
 

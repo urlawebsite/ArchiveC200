@@ -7,6 +7,7 @@ Things not allowed is min,max,append, while loops, and sum
 """
 # Problem 1
 
+
 # INPUT n0 start colony size, m growth rate, t time
 # RETURN final colony size
 

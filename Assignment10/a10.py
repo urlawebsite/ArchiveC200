@@ -16,6 +16,7 @@ import os
 # translates a random int into a step along the random walk
 # parameters: int i for the step index, numpy array x for tracking the left/right location at index i,
 # numpy array y for tracking the forward/backward location at index i.
+
 # return: None
 
 
