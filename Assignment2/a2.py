@@ -12,7 +12,6 @@ def g(x):
     elif x != 0:
         return x+2
 
-
 # problem 2
 # input year 1977-1997
 # return percent income or "error: year" if year
